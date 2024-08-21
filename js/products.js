@@ -46,4 +46,4 @@ const products = [
     }
   ];
   
-  
+  const productosContainer = document.getElementById('productos');
