@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const PRODUCTS_URL = "https://japceibal.github.io/emercado-api/cats_products/101.json"; 
 
     getJSONData(PRODUCTS_URL).then(function(resultado){
         if (resultado.status === 'ok') {
