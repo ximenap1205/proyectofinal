@@ -1,0 +1,51 @@
+{
+    "ID de gato": 101,
+    "catName": "Automóviles",
+    "productos": [
+        {
+            "identificación": 50921,
+            "nombre": "Chevrolet Onix Joy",
+            "description": "Generación 2019, variedad de colores. Motor 1.0, ideal para ciudad.",
+            "costo": 13500,
+            "moneda": "USD",
+            "VendidoCount": 14,
+            "imagen": "img/prod50921_1.jpg"
+        },
+        {
+            "identificación": 50922,
+            "nombre": "Fiat Way",
+            "description": "La versión de Fiat que brinda comodidad ya un precio accesible.",
+            "costo": 14500,
+            "moneda": "USD",
+            "VendidoCount": 52,
+            "imagen": "img/prod50922_1.jpg"
+        },
+        {
+            "identificación": 50923,
+            "nombre": "Suzuki Celerio",
+            "description": "Un auto que se ha ganado la buena fama por su economía con el combustible.",
+            "costo": 12500,
+            "moneda": "USD",
+            "VendidoCount": 25,
+            "imagen": "img/prod50923_1.jpg"
+        },
+        {
+            "identificación": 50924,
+            "nombre": "Peugeot 208",
+            "description": "El modelo de auto que se sigue renovando y manteniendo su prestigio en comodidad.",
+            "costo": 15200,
+            "moneda": "USD",
+            "VendidoCount": 17,
+            "imagen": "img/prod50924_1.jpg"
+        },
+        {
+            "identificación": 50925,
+            "nombre": "Bugatti Chiron",
+            "description": "El mejor hiperdeportivo del mundo. Producción limitada a 500 unidades.",
+            "costo": 3500000,
+            "moneda": "USD",
+            "VendidoCount": 0,
+            "imagen": "img/prod50925_1.jpg"
+        }
+    ]
+}
