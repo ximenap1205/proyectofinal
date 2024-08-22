@@ -8,12 +8,14 @@ getJSONData(PRODUCTS).then(function(res){
     for (let i = 0; i < productos.length; i++) {
         const producto = productos[i];
         container.innerHTML += `
-    <div>
-        <h5>${producto.name}</h5>
-        <img src="${producto.image}" alt="${producto.name}">
-        <p>${producto.description}</p>
-        <p class="price">${producto.cost}</p>
-        <p>Cantidad vendidos: ${producto.soldCount}</p>
+    <div class="card">
+        <img src="${producto.image}" class="img-card" alt="${producto.name}">
+        <div class="card-body">
+            <h5 class="card-title">${producto.name}</h5>
+            <p class="card-text">${producto.description}</p>
+            <h5 class="price">${producto.cost}</h5>
+            <small class="text-muted">Cantidad vendidos: ${producto.soldCount}</small>
+        </div>
       </div>
       `
     }
