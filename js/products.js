@@ -1,39 +1,25 @@
-document.addEventListener("DOMContentLoaded", function(){
+const PRODUCTS = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+let container = document.getElementById('container-autos')
 
-    getJSONData(PRODUCTS_URL).then(function(resultado){
-        if (resultado.status === 'ok') {
-            console.log("Datos recibidos:", resultado.data.productos);
-            showProduct(resultado.data.productos);
-        } else {
-            console.error("Error al obtener los datos: ", resultado.data.productos);
-        }
-    });
-});
 
-function showProduct(array) {
+getJSONData(PRODUCTS).then(function(res){
+    let productos = res.data.products;
 
-    let show = document.querySelector(".pb-5"); 
-
-    if (!show) {
-        console.error("El contenedor con clase 'pb-5' no se encuentra en el DOM.");
-        return;
+    for (let i = 0; i < productos.length; i++) {
+        const producto = productos[i];
+        container.innerHTML += `
+    <div>
+        <h5>${producto.name}</h5>
+        <img src="${producto.image}" alt="${producto.name}">
+        <p>${producto.description}</p>
+        <p class="price">${producto.cost}</p>
+        <p>Cantidad vendidos: ${producto.soldCount}</p>
+      </div>
+      `
     }
+    console.log(res)
+})
 
-    show.innerHTML = '';
-
-    array.forEach((productos) => {
-        show.innerHTML += `
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="${productos.imagen}" class="card-img-top" alt="${productos.nombre}">
-                    <div class="card-body">
-                        <h5 class="card-title">${productos.nombre}</h5>
-                        <p class="card-text">${productos.description}</p>
-                        <h5 class="card-text">Precio: ${productos.moneda} ${productos.costo}</h5>
-                        <small class="text-muted">Cantidad vendidos: ${productos.VendidoCount}</small>
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-}
+.catch(function(error){
+    console.error(error)
+})
