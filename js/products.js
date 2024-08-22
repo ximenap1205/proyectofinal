@@ -13,7 +13,7 @@ getJSONData(PRODUCTS).then(function(res){
         <div class="card-body">
             <h5 class="card-title">${producto.name}</h5>
             <p class="card-text">${producto.description}</p>
-            <h5 class="price">${producto.cost}</h5>
+            <h5 class="price">USD: ${producto.cost}</h5>
             <small class="text-muted">Cantidad vendidos: ${producto.soldCount}</small>
         </div>
       </div>
