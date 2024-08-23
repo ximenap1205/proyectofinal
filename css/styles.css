@@ -191,7 +191,7 @@ a.custom-card:hover {
 
 
 
-.card {
+.card-autos {
   display: flex;
   flex-direction: row;
   border: 1px solid #ccc;
@@ -207,7 +207,7 @@ a.custom-card:hover {
   margin-left: -190px;
 }
 
-.card:hover {
+.card-autos:hover {
   transform: scale(1.05);
   cursor: pointer;
   background-color: rgb(223, 223, 223);
@@ -224,16 +224,16 @@ body {
   background: linear-gradient(to bottom, #FB7D00, #F89A2E, #FCB24A,#F9B14E);
 }
 
-.card-title {
+.card-title-autos {
   font-weight: bold;
   font-size: 30px;
 }
 
-.card-text {
+.card-text-autos {
   font-size: 20px;
 }
 
-.price {
+.price-autos {
   font-weight: bold;
 }
 
