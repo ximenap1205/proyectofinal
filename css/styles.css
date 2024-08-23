@@ -189,10 +189,6 @@ a.custom-card:hover {
   color: orange;
 }
 
-.pb-5-container {
-  margin: 5% 0% 5% 0%;
-}
-
 .card-autos {
   display: flex;
   flex-direction: row;
@@ -222,7 +218,7 @@ a.custom-card:hover {
   margin: 20px;
 }
 
-body {
+#products-body {
   background: linear-gradient(to bottom, #FB7D00, #F89A2E, #FCB24A,#F9B14E);
 }
 
