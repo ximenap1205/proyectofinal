@@ -5,7 +5,7 @@ document.getElementById('boton').addEventListener('click', function(event) {
     let contra = document.getElementById('contra').value;
 
     if (user && contra) {
-        location.replace(location.origin +"/index.html");
+        location.replace(location.origin +"/proyectofinal/index.html");
     } else {
         alert('Please fill in the fields.');
     }
