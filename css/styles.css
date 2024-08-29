@@ -48,6 +48,21 @@ nav a {
   }
 }
 
+@media (max-width: 1024px){
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    height: 100px;
+  }
+}
+
+@media (max-width: 568px){
+  .jumbotron {
+    padding-top: 1rem;
+    padding-bottom: 6rem;
+  }
+}
+
 .jumbotron p:last-child {
   margin-bottom: 0;
 }
