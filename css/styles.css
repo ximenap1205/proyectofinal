@@ -241,6 +241,9 @@ a.custom-card:hover {
   .jumbotron {
     padding-top: 1rem;
     padding-bottom: 6rem;
+    height: 100px;
+  }
+  .card-autos{
     display: flex;
     flex-direction: column;
     border: 1px solid #ccc;
@@ -261,24 +264,41 @@ a.custom-card:hover {
     padding-top: 6rem;
     padding-bottom: 6rem;
     height: 100px;
+  }
+  .card-autos {
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
+    border-radius: 30px;
     width: 100%;
     gap: 10px;
+    height: 180px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s;
+    margin-top: 60px;
     align-content: center;
     align-items: center;
     background-color: white;
-    font-size: 30px;
+  }
+  .img-card {
+    width: 35%;
+    height: 130px;
+  }
+  .card-body-autos h5 {
+    font-size: 20px;
+  }
+  .card-body-autos p {
+    font-size: 15px;
+  }
+  .card-body-autos .price-autos {
+    font-size: 15px;
   }
 }
  
 
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
