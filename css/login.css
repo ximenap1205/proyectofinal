@@ -58,3 +58,32 @@ p {
 u {
     color: grey;
 }
+
+@media (max-width: 1024px){
+    .loginn {
+     margin-top: 200px;
+    }
+     body {
+         background-size: cover;
+         background-position: left;
+         background-repeat: no-repeat;
+         height: 1200px;
+     }
+  
+ }
+@media (max-width: 667px) {
+    .loginn {
+      width: 80%;
+      height: 550px;
+      margin-top: 70px;
+    }
+    button {
+        margin-top: auto;
+    }
+    body {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+  }
