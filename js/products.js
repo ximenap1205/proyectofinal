@@ -1,6 +1,11 @@
-const PRODUCTS = "https://japceibal.github.io/emercado-api/cats_products/101.json";
-let container = document.getElementById('container-autos')
+const catID = localStorage.getItem("catID");
+if (!catID) {
+  console.error("No se encontró el identificador de la categoría.");
+}
 
+const PRODUCTS = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+
+let container = document.getElementById('container-autos')
 
 getJSONData(PRODUCTS).then(function(res){
     let productos = res.data.products;
