@@ -319,3 +319,92 @@ a.custom-card:hover {
     border-radius: 30px;
   }
 }
+#opciones {
+  display: flex; 
+  justify-content: flex-end; 
+  gap: 1%;
+  padding-top: 1%;
+}
+
+#bot1 {
+  text-align: right;
+  background-image: url("../bot1.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border-color: #fff;
+}
+#bot2 {
+  text-align: right;
+  background-image: url("../bot2.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border-color: #fff;
+}
+#bot3 {
+  text-align: right;
+  background-image: url("../bot3.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  margin-right: 1%;
+  border-radius: 10px;
+  border-color: #fff;
+}
+#preciofiltro{
+  display: flex; 
+  justify-content: flex-end; 
+  gap: 10px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+#precio{
+  font-size: large;
+  font-family:sans-serif;
+  color: #494642;
+  font-weight: bold;
+}
+#min, #max{
+ border-radius: 5px;
+ background-color: #ecebd7;
+}
+#filtrar, #limpiar {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  background-color: #F89A2E;
+  border-color: #fff;
+  color:white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#buscar {
+  display: flex;           
+  justify-content: center; 
+  align-items: center;     
+  margin-top: 20px;    
+}
+#busqueda{
+  width: 300px;
+  padding: 5px;
+}
+
+
+#boton{
+  background-image: url("../lupa.jpeg");
+  background-size: contain;
+  background-position: center;
+  border-radius: 2px;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;           
+}
