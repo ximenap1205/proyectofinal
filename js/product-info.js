@@ -10,19 +10,57 @@ document.addEventListener("DOMContentLoaded", function () {
     getJSONData(PRODUCT_INFO_URL).then(function (res) {
         console.log("Datos recibidos:", res);
 
+        containerInfo.innerHTML = '';
+
         let productInfo = res.data;
 
         containerInfo.innerHTML = `
-            <div class="card-product-info">
-                <img src="${productInfo.images[0]}" class="img-card" alt="${productInfo.name}">
-                <div class="card-body-product-info">
-                    <h5 class="card-title-product-info">${productInfo.name}</h5>
-                    <p class="card-text-product-info">${productInfo.description}</p>
-                    <h5 class="price-product-info">USD: ${productInfo.cost}</h5>
-                    <small class="text-muted">Cantidad vendidos: ${productInfo.soldCount}</small>
+            <div class="page">
+                <div class="page-track">
+                    <a class="link-track" href="products.html">${productInfo.category} </a> <p>  &#62 ${productInfo.name}</p>
                 </div>
-            </div>
+                <div class="card-product-info">
+                    <div class="images-gallery">
+                        <img src="${productInfo.images[0]}" class="img-card-info" alt="${productInfo.name}">
+                        <div class="controlls">
+                            <span class="btn active"></span>
+                            <span class="btn"></span>
+                            <span class="btn"></span>
+                            <span class="btn"></span>
+                        </div>
+                    </div>
+                    <div class="card-body-product-info">
+                        <h2 class="card-title-product-info">${productInfo.name}</h2>
+                        <a class="card-category-product-info" href="categories.html">${productInfo.category}</a>
+                        <h5 class="price-product-info">USD: ${productInfo.cost}</h5>
+                        <small class="text-muted">Cantidad vendidos: ${productInfo.soldCount}</small>
+                        <p class="card-text-product-info">${productInfo.description}</p>
+                    </div>
+                </div>
+            </div>  
         `;
+
+            let image = document.getElementsByClassName("img-card-info")[0];
+            let btn = document.getElementsByClassName("btn");
+
+            function changeImage(i) {
+                console.log(i);
+                console.log(productInfo.images[i]);
+
+                image.src = productInfo.images[i];
+                for (let bt of btn) {
+                    bt.classList.remove("active");
+                }
+                btn[i].classList.add("active");
+            }
+
+            for (let i = 0; i < btn.length; i++) {
+                btn[i].addEventListener("click", function () {
+                    changeImage(i);
+                    console.log(i);
+                });
+            }
+
         }
     )
     .catch(function (error) {
