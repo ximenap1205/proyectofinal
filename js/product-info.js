@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="images-gallery">
                         <img src="${productInfo.images[0]}" class="img-card-info" alt="${productInfo.name}">
                         <div class="controlls">
-                            <span class="btn active"></span>
-                            <span class="btn"></span>
-                            <span class="btn"></span>
-                            <span class="btn"></span>
+                            <span class="btn-info active"></span>
+                            <span class="btn-info"></span>
+                            <span class="btn-info"></span>
+                            <span class="btn-info"></span>
                         </div>
                     </div>
                     <div class="card-body-product-info">
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
             let image = document.getElementsByClassName("img-card-info")[0];
-            let btn = document.getElementsByClassName("btn");
+            let btn = document.getElementsByClassName("btn-info");
 
             function changeImage(i) {
                 console.log(i);
