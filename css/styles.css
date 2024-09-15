@@ -183,51 +183,18 @@ a.custom-card:hover {
   color: orange;
 }
 
-.card-product {
-  display: flex;
-  flex-direction: row;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  padding: 20px;
-  width: 100%;
-  height: 80%;
-  gap: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s;
-  margin-top: 60px;
-  align-content: center;
-  align-items: center;
-  background-color: white;
-}
-
 .card-product:hover {
   transform: scale(1.05);
   cursor: pointer;
   background-color: rgb(223, 223, 223);
 }
 
-.img-card {
-  width: 100%;
-  height: 200px;
-  border-radius: 30px;
-}
-
 #products-body {
   background: linear-gradient(to bottom, #FB7D00, #F89A2E, #FCB24A,#F9B14E);
 }
 
-.card-title-product {
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.card-text-product {
-  font-size: 20px;
-}
-
-.price-product {
-  font-weight: bold;
+#product-info-body {
+  background: linear-gradient(to bottom, #FB7D00, #F89A2E, #FCB24A,#F9B14E);
 }
 
 #header-product {
@@ -237,25 +204,222 @@ a.custom-card:hover {
   height: 90%;
 }
 
-@media (max-width: 568px){
+#container-product-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 767px){
   .jumbotron {
     padding-top: 1rem;
     padding-bottom: 6rem;
     height: 100px;
   }
-  .card-product{
+  .card-product {
     display: flex;
     flex-direction: column;
-    border: 1px solid #ccc;
+    border: 0.2rem solid #ccc;
+    border-radius: 3rem;
+    padding: 2rem;
     width: 100%;
-    gap: 10px;
+    gap: 1rem;
     height: 80%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s;
+    margin-top: 3rem;
     align-content: center;
     align-items: center;
     background-color: white;
+  }
+  .img-card {
+    width: 18rem;
+    height: 9rem;
+    border-radius: 2rem;
+  }
+  .card-title-product {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .card-body-product p {
+    font-size: 1rem;
+  }
+  .card-body-product .price-product {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  #bot1 {
+    text-align: right;
+    background-image: url("../bot1.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.3rem;
+    border-color: #fff;
+  }
+  #bot2 {
+    text-align: right;
+    background-image: url("../bot2.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.3rem;
+    border-color: #fff;
+  }
+  #bot3 {
+    text-align: right;
+    background-image: url("../bot3.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.3rem;
+    border-color: #fff;
+    margin-right: 1rem;
+  }
+  #preciofiltro{
+    align-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    height: 1rem;
+    line-height: normal;
+    text-align: end;
+  }
+  #precio{
+    font-family:sans-serif;
+    color: #494642;
+    font-weight: bold;
+    font-size: 0.6rem;
+  }
+  #min, #max{
+   border-radius: 0.7rem;
+   background-color: #ecebd7;
+   font-style: italic;
+   border-color: #d1b3b3;
+   font-size: 0.5rem;
+   height: 1rem;
+   width: 4rem;
+   padding: 1%;
+  }
+  #filtrar, #limpiar {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    background-color: #F89A2E;
+    border-color: #fff;
+    color:white;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: 0.5rem;
+  }
+  #buscar {
+    display: flex;           
+    justify-content: left; 
+    align-items: center;
+    margin-top: 1.5rem;  
+    margin-left: 2rem;  
+  }
+  #busqueda{
+    border-radius: 0.5rem;
+    background-color: #ecebd7;
+    font-style: italic;
+    border-color: #d1b3b3;
+    width: 50%;
+    height: 1.2rem;
+    padding: 1%;
+    font-size: 0.6rem;
+    line-height: 1.2rem;
+  }
+  #boton{
+    background-image: url("../lupa.jpeg");
+    background-size: contain;
+    background-position: center;
+    border-radius: 1.5rem;
+    border-color: #d1b3b3;
+    width: 1.3rem;
+    height: 1.3rem;
+    cursor: pointer;           
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .page-track {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2.5rem;
+    color: #ecebd7;
+}
+  .card-product-info {
+    display: flex;
+    flex-direction: column;
+    border: 0.2rem solid #ccc;
+    border-radius: 3rem;
+    padding: 1rem;
+    margin: 0rem 2rem 0rem 2rem;
+    gap: 1rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-color: white;
+  }
+  .images-gallery {
+    flex-basis: 70%;
+    position: relative;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+  .img-card-info {
+    width: 100%;
+    height: 100%;
+  }
+  .controlls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 2rem;
+  }
+  .btn-info {
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 100%;
+    background: #c4bcb3;
+    border-color: #343a40;
+    border-width: 0.1rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+  .btn-info.active{
+    background: #6f7377;
+  }
+  .card-title-product-info {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .card-category-product-info {
+    color: #FB7D00;
+    font-size: 1rem;
+  }
+  .card-body-product-info p {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  .card-body-product-info .price-product-info {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
   }
 }
 
@@ -269,7 +433,7 @@ a.custom-card:hover {
   align-content: center;
 }
 
-@media (min-width: 568px) and (max-width: 1024px){
+@media (min-width: 768px) and (max-width: 1023px){
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
@@ -278,44 +442,402 @@ a.custom-card:hover {
   .card-product {
     display: flex;
     flex-direction: row;
-    border: 1px solid #ccc;
-    border-radius: 30px;
+    border: 0.2rem solid #ccc;
+    border-radius: 3rem;
+    padding: 2rem;
     width: 100%;
-    gap: 10px;
-    height: 180px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+    height: 12rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s;
-    margin-top: 60px;
+    margin-top: 3rem;
     align-content: center;
     align-items: center;
     background-color: white;
   }
   .img-card {
-    width: 35%;
-    height: 130px;
+    width: 18rem;
+    height: 9rem;
+    border-radius: 2rem;
   }
-  .card-body-product h5 {
-    font-size: 20px;
+  .card-title-product {
+    font-weight: bold;
+    font-size: 1rem;
   }
   .card-body-product p {
-    font-size: 15px;
+    font-size: 1rem;
   }
   .card-body-product .price-product {
-    font-size: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  #bot1 {
+    text-align: right;
+    background-image: url("../bot1.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-color: #fff;
+  }
+  #bot2 {
+    text-align: right;
+    background-image: url("../bot2.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-color: #fff;
+  }
+  #bot3 {
+    text-align: right;
+    background-image: url("../bot3.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border-color: #fff;
+    margin-right: 1rem;
+  }
+  #preciofiltro{
+    align-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    height: 1rem;
+    line-height: normal;
+    text-align: end;
+  }
+  #precio{
+    font-family:sans-serif;
+    color: #494642;
+    font-weight: bold;
+    font-size: 0.6rem;
+  }
+  #min, #max{
+   border-radius: 0.7rem;
+   background-color: #ecebd7;
+   font-style: italic;
+   border-color: #d1b3b3;
+   font-size: 0.5rem;
+   height: 1rem;
+   padding: 1%;
+  }
+  #filtrar, #limpiar {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    background-color: #F89A2E;
+    border-color: #fff;
+    color:white;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    font-size: 0.6rem;
+  }
+  #buscar {
+    display: flex;           
+    justify-content: left; 
+    align-items: center;
+    margin-top: 2rem;  
+    margin-left: 2rem;  
+  }
+  #busqueda{
+    border-radius: 0.7rem;
+    background-color: #ecebd7;
+    font-style: italic;
+    border-color: #d1b3b3;
+    width: 30%;
+    height: 1.5rem;
+    padding: 1%;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+  }
+  #boton{
+    background-image: url("../lupa.jpeg");
+    background-size: contain;
+    background-position: center;
+    border-radius: 1.5rem;
+    border-color: #d1b3b3;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;           
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .page-track {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2.5rem;
+    color: #ecebd7;
+}
+  .card-product-info {
+    display: flex;
+    flex-direction: column;
+    border: 0.2rem solid #ccc;
+    border-radius: 3rem;
+    padding: 1rem;
+    margin: 0rem 2rem 0rem 2rem;
+    gap: 1rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-color: white;
+  }
+  .images-gallery {
+    flex-basis: 70%;
+    position: relative;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+  .img-card-info {
+    width: 100%;
+    height: 100%;
+  }
+  .controlls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 2rem;
+  }
+  .btn-info {
+    width: 0.1rem;
+    height: 0.1rem;
+    border-radius: 100%;
+    background: #c4bcb3;
+    border-color: #343a40;
+    border-width: 0.1rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+  .btn-info.active{
+    background: #6f7377;
+  }
+  .card-title-product-info {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+  .card-category-product-info {
+    color: #FB7D00;
+    font-size: 1rem;
+  }
+  .card-body-product-info p {
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  .card-body-product-info .price-product-info {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
   }
 }
- 
-
 
 @media (min-width: 1024px) {
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
   }
+  .card-product {
+    display: flex;
+    flex-direction: row;
+    border: 0.2rem solid #ccc;
+    border-radius: 3rem;
+    padding: 2rem;
+    width: 100%;
+    gap: 1rem;
+    height: 12rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    margin-top: 3rem;
+    align-content: center;
+    align-items: center;
+    background-color: white;
+  }
   .img-card {
-    width: 35%;
-    border-radius: 30px;
+    width: 18rem;
+    height: 9rem;
+    border-radius: 2rem;
+  }
+  .card-title-product {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .card-body-product p {
+    font-size: 1rem;
+  }
+  .card-body-product .price-product {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  #bot1 {
+    text-align: right;
+    background-image: url("../bot1.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border-color: #fff;
+  }
+  #bot2 {
+    text-align: right;
+    background-image: url("../bot2.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border-color: #fff;
+  }
+  #bot3 {
+    text-align: right;
+    background-image: url("../bot3.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border-color: #fff;
+    margin-right: 1rem;
+  }
+  #preciofiltro{
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-right: 1rem;
+  }
+  #precio{
+    font-size: large;
+    font-family:sans-serif;
+    color: #494642;
+    font-weight: bold;
+  }
+  #min, #max{
+   border-radius: 0.7rem;
+   background-color: #ecebd7;
+   font-style: italic;
+   border-color: #d1b3b3;
+  }
+  #filtrar, #limpiar {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    background-color: #F89A2E;
+    border-color: #fff;
+    color:white;
+    cursor: pointer;
+    border-radius: 0.5rem;
+  }
+  #buscar {
+    display: flex;           
+    justify-content: left; 
+    margin-top: 4rem;  
+    margin-left: 5rem;  
+  }
+  #busqueda{
+    border-radius: 0.7rem;
+    background-color: #ecebd7;
+    font-style: italic;
+    border-color: #d1b3b3;
+    width: 30%;
+    height: 2.5rem;
+    padding: 1%;
+  }
+  #boton{
+    background-image: url("../lupa.jpeg");
+    background-size: contain;
+    background-position: center;
+    border-radius: 1.5rem;
+    border-color: #d1b3b3;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;           
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  .page-track {
+    display: flex;
+    flex-direction: row;
+    margin-left: 2.5rem;
+    color: #ecebd7;
+}
+  .card-product-info {
+    display: flex;
+    flex-direction: row;
+    border: 0.2rem solid #ccc;
+    border-radius: 3rem;
+    padding: 2rem;
+    margin: 0rem 2.5rem 0rem 2.5rem;
+    gap: 2rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-color: white;
+  }
+  .images-gallery {
+    flex-basis: 70%;
+    position: relative;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+  .img-card-info {
+    width: 100%;
+    height: 100%;
+  }
+  .controlls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 3rem;
+  }
+  .btn-info {
+    width: 0.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: #c4bcb3;
+    border-color: #343a40;
+    border-width: 0.1rem;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.1);
+    flex-direction: row;
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+  .btn-info.active{
+    background: #6f7377;
+  }
+  .card-title-product-info {
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
+  .card-category-product-info {
+    color: #FB7D00;
+    font-size: 1.5rem;
+  }
+  .card-body-product-info p {
+    font-size: 1rem;
+    margin-top: 3rem;
+  }
+  .card-body-product-info .price-product-info {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 4rem;
   }
 }
 #opciones {
@@ -324,86 +846,7 @@ a.custom-card:hover {
   gap: 1%;
   padding-top: 1%;
 }
-
-#bot1 {
-  text-align: right;
-  background-image: url("../bot1.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
-  height: 50px;
-  border-radius: 10px;
-  border-color: #fff;
-}
-#bot2 {
-  text-align: right;
-  background-image: url("../bot2.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  border-color: #fff;
-}
-#bot3 {
-  text-align: right;
-  background-image: url("../bot3.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
-  margin-right: 1%;
-  border-radius: 10px;
-  border-color: #fff;
-}
-#preciofiltro{
-  display: flex; 
-  justify-content: flex-end; 
-  gap: 10px;
-  margin-top: 20px;
-  margin-right: 10px;
-}
-#precio{
-  font-size: large;
-  font-family:sans-serif;
-  color: #494642;
-  font-weight: bold;
-}
-#min, #max{
- border-radius: 5px;
- background-color: #ecebd7;
-}
-#filtrar, #limpiar {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
-  background-color: #F89A2E;
-  border-color: #fff;
-  color:white;
-  cursor: pointer;
-  border-radius: 5px;
-}
-#buscar {
-  display: flex;           
-  justify-content: center; 
-  align-items: center;     
-  margin-top: 20px;    
-}
-#busqueda{
-  width: 300px;
-  padding: 5px;
-}
-
-
-#boton{
-  background-image: url("../lupa.jpeg");
-  background-size: contain;
-  background-position: center;
-  border-radius: 2px;
-  width: 38px;
-  height: 38px;
-  cursor: pointer;           
+.page-track a {
+  color: #ecebd7;
+  padding-right: 0.5rem;
 }
