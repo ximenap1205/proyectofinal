@@ -212,6 +212,9 @@ a.custom-card:hover {
   align-items: center;
   margin-top: 2rem;
 }
+.text-muted a{
+  color:#FB7D00;
+}
 
 @media (max-width: 767px){
   .jumbotron {
