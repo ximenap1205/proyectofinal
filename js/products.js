@@ -3,6 +3,7 @@ let catID = localStorage.getItem("catID");
 function setProductID(id) {
     localStorage.setItem("productID", id);
     window.location = "product-info.html";
+    console.log(id);
 }
 
 const PRODUCTS = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
@@ -41,11 +42,14 @@ function sortCategories(criteria, array) {
     return result;
 }
 
-function showCategoriesList() {
+function showCategoriesList(productsToShow) {
     container.innerHTML = '';
 
-    for (let i = 0; i < currentCategoriesArray.length; i++) {
-        let producto = currentCategoriesArray[i];
+    let productos = productsToShow || currentCategoriesArray;
+
+    for (let i = 0; i < productos.length; i++) {
+
+        let producto = productos[i];
 
         if (((minCount == undefined) || (minCount != undefined && parseInt(producto.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(producto.cost) <= maxCount))) {
@@ -130,3 +134,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showCategoriesList();
     });
 });
+
+let input = document.getElementById('busqueda');/// esto los que nos dio nati en la pagina 
+
+// me debe filtrar en tiempo real
+input.addEventListener('input', function () {
+    let query = input.value.toLowerCase();
+    let filteredProducts = currentCategoriesArray.filter(producto =>
+      producto.name.toLowerCase().includes(query) ||  /// como indica filtra titulo
+      producto.description.toLowerCase().includes(query)/// como indica filtra la descripcion d
+    );
+    showCategoriesList(filteredProducts);
+  });
