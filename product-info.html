@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/product-info.css" rel="stylesheet">
 </head>
 
 <body id="product-info-body">
@@ -44,14 +45,15 @@
       
     </div>
   </main>
-
-  <form action="/enviar-formulario" method="post" class="comment-form"></form>
+  <div class="container">
+  <form action="/enviar-formulario" method="post" class="comment-form">
     <div class="form-group">
       <label for="msg">Deje aquí su comentario</label>
       <textarea id="msg" name="user_message" rows="4" placeholder="Escribe tu comentario..."></textarea>
     </div>
     <button type="submit" class="btn-submit">Enviar comentario</button>
   </form>
+  </div>
 
   <footer class="text-muted">
     <div class="container">
