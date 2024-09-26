@@ -31,28 +31,27 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <img src="/img/prototipo 2.jpeg" id="header-product" alt="imagen Inicio">
+  <img src="../prototipo 2.jpeg" id="header-product" alt="Imagen de inicio">
 
   <main>
     <div id="container-product-info">
-      
+    
     </div>
   </main>
+  
   <div class="container">
-  <form action="/enviar-formulario" method="post" class="comment-form">
-    <div class="form-group">
-      <label for="msg">Deje aquí su comentario</label>
-      <textarea id="msg" name="user_message" rows="4" placeholder="Escribe tu comentario..."></textarea>
-    </div>
-    <button type="submit" class="btn-submit">Enviar comentario</button>
-  </form>
+    <form action="/enviar-formulario" method="post" class="comment-form">
+      <div class="form-group">
+        <label for="msg">Deje aquí su comentario</label>
+        <textarea id="msg" name="user_message" rows="4" placeholder="Escribe tu comentario..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Enviar comentario</button>
+    </form>
   </div>
 
   <footer class="text-muted">
@@ -63,6 +62,7 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -71,6 +71,7 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
