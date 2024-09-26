@@ -257,7 +257,7 @@ a.custom-card:hover {
   }
   #bot1 {
     text-align: right;
-    background-image: url("../bot1.jpeg");
+    background-image: url("/img/bot1.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -268,7 +268,7 @@ a.custom-card:hover {
   }
   #bot2 {
     text-align: right;
-    background-image: url("../bot2.jpeg");
+    background-image: url("/img/bot2.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -279,7 +279,7 @@ a.custom-card:hover {
   }
   #bot3 {
     text-align: right;
-    background-image: url("../bot3.jpeg");
+    background-image: url("/img/bot3.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -343,7 +343,7 @@ a.custom-card:hover {
     line-height: 1.2rem;
   }
   #boton{
-    background-image: url("../lupa.jpeg");
+    background-image: url("/img/lupa.jpeg");
     background-size: contain;
     background-position: center;
     border-radius: 1.5rem;
@@ -477,7 +477,7 @@ a.custom-card:hover {
   }
   #bot1 {
     text-align: right;
-    background-image: url("../bot1.jpeg");
+    background-image: url("/img/bot1.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -488,7 +488,7 @@ a.custom-card:hover {
   }
   #bot2 {
     text-align: right;
-    background-image: url("../bot2.jpeg");
+    background-image: url("/img/bot2.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -499,7 +499,7 @@ a.custom-card:hover {
   }
   #bot3 {
     text-align: right;
-    background-image: url("../bot3.jpeg");
+    background-image: url("/img/bot3.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -562,7 +562,7 @@ a.custom-card:hover {
     line-height: 1.5rem;
   }
   #boton{
-    background-image: url("../lupa.jpeg");
+    background-image: url("/img/lupa.jpeg");
     background-size: contain;
     background-position: center;
     border-radius: 1.5rem;
@@ -685,7 +685,7 @@ a.custom-card:hover {
   }
   #bot1 {
     text-align: right;
-    background-image: url("../bot1.jpeg");
+    background-image: url("/img/bot1.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -696,7 +696,7 @@ a.custom-card:hover {
   }
   #bot2 {
     text-align: right;
-    background-image: url("../bot2.jpeg");
+    background-image: url("/img/bot2.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -707,7 +707,7 @@ a.custom-card:hover {
   }
   #bot3 {
     text-align: right;
-    background-image: url("../bot3.jpeg");
+    background-image: url("/img/bot3.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -761,7 +761,7 @@ a.custom-card:hover {
     padding: 1%;
   }
   #boton{
-    background-image: url("../lupa.jpeg");
+    background-image: url("/img/lupa.jpeg");
     background-size: contain;
     background-position: center;
     border-radius: 1.5rem;
