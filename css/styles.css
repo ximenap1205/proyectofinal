@@ -869,7 +869,7 @@ a.custom-card:hover {
 .comment-form textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #f8f7f7;
   border-radius: 5px;
   resize: vertical;
 }
@@ -877,7 +877,7 @@ a.custom-card:hover {
 .btn-submit {
   margin-top: 10px;
   padding: 10px 15px;
-  background-color: #f3ca94;
+  background-color: #ec8601;
   color: white;
   border: none;
   border-radius: 5px;
@@ -885,5 +885,5 @@ a.custom-card:hover {
 }
 
 .btn-submit:hover {
-  background-color: #f3a693;
+  background-color: #f1d96c;
 }
