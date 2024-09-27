@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         let stars = '★'.repeat(comment.score) + '☆'.repeat(5 - comment.score);
                         commentsHTML += `
                             <div class="comment">
-                                <strong>${comment.user}</strong> - <small>${new Date(comment.dateTime).toLocaleDateString()}</small>
+                                ${comment.user} - <small>${new Date(comment.dateTime).toLocaleDateString()}</small>
                                 <div class="stars">${stars}</div>
                                 <p>${comment.description}</p>
                             </div>
