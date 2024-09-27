@@ -761,7 +761,7 @@ a.custom-card:hover {
     padding: 1%;
   }
   #boton{
-    background-image: url("./img/lupa.jpeg");
+    background-image: url("../img/lupa.jpeg");
     background-size: contain;
     background-position: center;
     border-radius: 1.5rem;
