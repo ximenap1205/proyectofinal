@@ -685,7 +685,7 @@ a.custom-card:hover {
   }
   #bot1 {
     text-align: right;
-    background-image: url("./img/bot1.jpeg");
+    background-image: url("../img/bot1.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -696,7 +696,7 @@ a.custom-card:hover {
   }
   #bot2 {
     text-align: right;
-    background-image: url("./img/bot2.jpeg");
+    background-image: url("../img/bot2.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -707,7 +707,7 @@ a.custom-card:hover {
   }
   #bot3 {
     text-align: right;
-    background-image: url("./img/bot3.jpeg");
+    background-image: url("../img/bot3.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
