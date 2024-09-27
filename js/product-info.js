@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `;
 
-            // Función para cambiar imágenes
+    
             let image = document.getElementsByClassName("img-card-info")[0];
             let btn = document.getElementsByClassName("btn-info");
             function changeImage(i) {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
 
-            // Obtener comentarios del producto
+        
             getJSONData(PRODUCT_COMMENTS_URL).then(function (commentsRes) {
                 if (commentsRes.status === "ok") {
                     let comments = commentsRes.data;
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                         `;
                     });
-                    containerInfo.innerHTML += commentsHTML; // Agregar comentarios al contenedor
+                    containerInfo.innerHTML += commentsHTML;
                 }
             }).catch(function (error) {
                 console.error('Error al obtener los comentarios del producto:', error);
