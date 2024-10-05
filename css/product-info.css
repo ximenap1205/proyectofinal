@@ -81,3 +81,11 @@
 .rating {
   color: #ec8601; 
 }
+
+.carousel-item {
+  display: none; /* Oculta las imágenes inicialmente */
+}
+
+.carousel-item.active {
+  display: block; /* Solo muestra la imagen activa */
+}

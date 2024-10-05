@@ -43,35 +43,36 @@
     <div id="container-product-info">
     
     </div>
+    <div id="container-comments">
+
+
+    </div>
+    <div id ="container-new-comments">
+
+    </div>
   </main>
-  <div id="container-comments"></div>
-  <div id ="container-new-comments"></div>
   
-  <div class="container">
-    <form action="/enviar-formulario" method="post" class="comment-form">
+  
+  <div class="container mt-5">
+    <form id="comment-form" class="comment-form">
       <div class="form-group">
         <label for="username">Tu nombre</label>
-        <input type="text" id="username" name="user_name" placeholder="Escribe tu nombre" required>
-    </div>
+        <input type="text" id="username" name="user_name" placeholder="Escribe tu nombre" required class="form-control">
+      </div>
       <div class="form-group">
         <label for="msg">Deje aquí su comentario</label>
-
         <div class="rating">
           <i class="bi bi-star-fill" data-value="1"></i>
           <i class="bi bi-star-fill" data-value="2"></i>
           <i class="bi bi-star-fill" data-value="3"></i>
           <i class="bi bi-star-fill" data-value="4"></i>
           <i class="bi bi-star-fill" data-value="5"></i>
+        </div>
+        <textarea id="msg" name="user_message" rows="4" placeholder="Escribe tu comentario..." required class="form-control"></textarea>
       </div>
-    
-        <textarea id="msg" name="user_message" rows="4" placeholder="Escribe tu comentario..." required></textarea>
-      </div>
-      <button type="submit" class="btn-submit">Enviar comentario</button>
+      <button type="submit" class="btn btn-primary" id="btnSubmit">Enviar comentario</button>
     </form>
-    <div class="row">
-      <div class="list-group" id="products-list-container">
-      </div>
-
+    <div id="liveAlertPlaceholder"></div>
   </div>
 
   <footer class="text-muted">
