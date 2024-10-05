@@ -47,33 +47,29 @@
 
 
     </div>
-    <div id ="container-new-comments">
-
-    </div>
-  </main>
-  
-  
-  <div class="container mt-5">
-    <form id="comment-form" class="comment-form">
-      <div class="form-group">
-        <label for="username">Tu nombre</label>
-        <input type="text" id="username" name="user_name" placeholder="Escribe tu nombre" required class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="msg">Deje aquí su comentario</label>
-        <div class="rating">
-          <i class="bi bi-star-fill" data-value="1"></i>
-          <i class="bi bi-star-fill" data-value="2"></i>
-          <i class="bi bi-star-fill" data-value="3"></i>
-          <i class="bi bi-star-fill" data-value="4"></i>
-          <i class="bi bi-star-fill" data-value="5"></i>
+    <div class="container mt-5">
+      <form id="comment-form" class="comment-form">
+        <div class="form-group">
+          <label for="username">Tu nombre</label>
+          <input type="text" id="username" name="user_name" placeholder="Escribe tu nombre" required class="form-control">
         </div>
-        <textarea id="msg" name="user_message" rows="4" placeholder="Escribe tu comentario..." required class="form-control"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" id="btnSubmit">Enviar comentario</button>
-    </form>
-    <div id="liveAlertPlaceholder"></div>
-  </div>
+        <div class="form-group">
+          <label for="msg">Deje aquí su comentario</label>
+          <div class="rating">
+            <i class="bi bi-star-fill" data-value="1"></i>
+            <i class="bi bi-star-fill" data-value="2"></i>
+            <i class="bi bi-star-fill" data-value="3"></i>
+            <i class="bi bi-star-fill" data-value="4"></i>
+            <i class="bi bi-star-fill" data-value="5"></i>
+          </div>
+          <textarea id="msg" name="user_message" rows="4" placeholder="Escribe tu comentario..." required class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="btnSubmit">Enviar comentario</button>
+      </form>
+      <div id="liveAlertPlaceholder"></div>
+    </div>
+    <div id="related-products-container"></div>
+  </main>
 
   <footer class="text-muted">
     <div class="container">
