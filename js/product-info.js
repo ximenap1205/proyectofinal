@@ -105,7 +105,7 @@ function highlightStars(rating) {
 }
 
 // Función para mostrar los comentarios
-function displayComments() {
+function showComments() {
     const commentsListContainer = document.getElementById('container-new-comments');
     commentsListContainer.innerHTML = ''; // Limpiar la lista existente
 
@@ -148,7 +148,7 @@ document.querySelector('.comment-form').addEventListener('submit', function(even
     // Agregar el nuevo comentario, calificación y nombre al array
     if (newComment && selectedRating > 0 && username) {
         comments.push({ message: newComment, rating: selectedRating, username: username });
-        displayComments(); // Mostrar los comentarios actualizados
+        showComments(); // Mostrar los comentarios actualizados
 
         // Limpiar los campos de entrada
         messageInput.value = '';
@@ -161,5 +161,5 @@ document.querySelector('.comment-form').addEventListener('submit', function(even
 // Cargar los comentarios iniciales si es necesario
 window.onload = function() {
     comments = []; // Comentarios iniciales vacíos
-    displayComments(); // Mostrar la lista vacía
+    showComments(); // Mostrar la lista vacía
 };
