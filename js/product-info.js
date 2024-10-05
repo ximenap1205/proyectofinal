@@ -105,6 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error('Error al obtener los comentarios del producto:', error);
             });
 
+            
+
         }
     }).catch(function (error) {
         console.error('Error al obtener los datos del producto:', error);
