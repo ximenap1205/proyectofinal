@@ -14,14 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
                         <a class="link-track" href="products.html">${productInfo.category}</a> <p>  &#62 ${productInfo.name}</p>
                     </div>
                     <div class="card-product-info">
-                        <div class="images-gallery">
-                            <img src="${productInfo.images[0]}" class="img-card-info" alt="${productInfo.name}">
-                            <div class="controlls">
-                                <span class="btn-info active"></span>
-                                <span class="btn-info"></span>
-                                <span class="btn-info"></span>
-                                <span class="btn-info"></span>
+                        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <!-- botones -->
                             </div>
+                            <div class="carousel-inner" id="carouselImages">
+                                <!-- imagenes -->
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
                         <div class="card-body-product-info">
                             <h2 class="card-title-product-info">${productInfo.name}</h2>
@@ -35,20 +42,47 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
 
     
-            let image = document.getElementsByClassName("img-card-info")[0];
-            let btn = document.getElementsByClassName("btn-info");
-            function changeImage(i) {
-                image.src = productInfo.images[i];
-                for (let bt of btn) {
-                    bt.classList.remove("active");
-                }
-                btn[i].classList.add("active");
-            }
-            for (let i = 0; i < btn.length; i++) {
-                btn[i].addEventListener("click", function () {
-                    changeImage(i);
+            const carouselImages = document.getElementById("carouselImages");
+            const carouselIndicators = document.querySelector(".carousel-indicators");
+            const images = productInfo.images; // Asegúrate de que este array exista
+
+            // Crear imágenes del carrusel
+            images.forEach((image, i) => {
+            const isActive = i === 0 ? 'active' : '';
+
+            carouselImages.innerHTML += `
+                <div class="carousel-item ${isActive}">
+                    <img src="${image}" class="d-block w-100" alt="${productInfo.name}">
+                </div>
+            `;
+
+            // Crear indicadores
+            carouselIndicators.innerHTML += `
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${i}" class="${isActive}" aria-current="${isActive ? 'true' : 'false'}" aria-label="Slide ${i + 1}"></button>
+            `;
+            });
+
+            // Agregar evento de clic a los botones del indicador
+            const indicatorButtons = document.querySelectorAll(".carousel-indicators button");
+            indicatorButtons.forEach((button, index) => {
+                button.addEventListener("click", () => {
+                    // Cambiar la imagen activa en el carrusel
+                    document.querySelectorAll('.carousel-item').forEach((item, i) => {
+                        item.classList.remove('active'); // Remover la clase 'active' de todas las imágenes
+                        if (i === index) {
+                            item.classList.add('active'); // Añadir la clase 'active' solo a la imagen correspondiente
+                        }
+                    });
+
+                    // Cambiar el estado de los indicadores
+                    indicatorButtons.forEach((btn) => {
+                        btn.classList.remove('active'); // Remover la clase 'active' de todos los indicadores
+                    });
+            
+                    button.classList.add('active'); // Añadir la clase 'active' solo al botón correspondiente
                 });
-            }
+            });
+
 
         
             getJSONData(PRODUCT_COMMENTS_URL).then(function (commentsRes) {

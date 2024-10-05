@@ -30,3 +30,11 @@
   .btn-submit:hover {
     background-color: #f1d96c;
   }
+
+.carousel-item {
+  display: none; /* Oculta las imágenes inicialmente */
+}
+
+.carousel-item.active {
+  display: block; /* Solo muestra la imagen activa */
+}
