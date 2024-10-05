@@ -43,16 +43,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `;
 
-            console.log("Product info:", productInfo);
+            console.log("Productos info:", productInfo);
 
-            // Agregar imágenes al carrusel
             const carouselImages = document.getElementById("carouselImages");
             const carouselIndicators = document.querySelector(".carousel-indicators");
-            const images = productInfo.images; // Asegúrate de que este array exista
+            const images = productInfo.images;
 
-            // Crear imágenes del carrusel
+            // imágenes para carrusel
             images.forEach((image, i) => {
-                const isActive = i === 0 ? 'active' : '';
+                let isActive = '';
+                if (i === 0) {
+                    isActive = 'active'; // si es la primera imagen asigna 'active'
+                }
 
                 carouselImages.innerHTML += `
                     <div class="carousel-item ${isActive}">
@@ -60,39 +62,38 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 `;
 
-                // Crear indicadores
                 carouselIndicators.innerHTML += `
                     <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="${i}" class="${isActive}" aria-current="${isActive ? 'true' : 'false'}" aria-label="Slide ${i + 1}"></button>
                 `;
             });
 
-            // Agregar evento de clic a los botones del indicador
+            // evento de clic a los botones del indicador para entrar a la imagen
             const indicatorButtons = document.querySelectorAll(".carousel-indicators button");
-            indicatorButtons.forEach((button, index) => {
-                button.addEventListener("click", () => {
-                    // Cambiar la imagen activa en el carrusel
+            indicatorButtons.forEach((btn, index) => {
+                btn.addEventListener("click", () => {
+                    // cambiar la imagen activa en el carrusel
                     document.querySelectorAll('.carousel-item').forEach((item, i) => {
-                        item.classList.remove('active'); // Remover la clase 'active' de todas las imágenes
+                        item.classList.remove('active'); // eliminar la clase 'active' de todas las imagenes
                         if (i === index) {
-                            item.classList.add('active'); // Añadir la clase 'active' solo a la imagen correspondiente
+                            item.classList.add('active'); // agregar la clase 'active' solo a la imagen seleccionada
                         }
                     });
 
-                    // Cambiar el estado de los indicadores
+                    // cambiar el indicador activo
                     indicatorButtons.forEach((btn) => {
-                        btn.classList.remove('active'); // Remover la clase 'active' de todos los indicadores
+                        btn.classList.remove('active'); // eliminar la clase 'active' de todas las imagenes
                     });
             
-                    button.classList.add('active'); // Añadir la clase 'active' solo al botón correspondiente
+                    btn.classList.add('active'); // agregar la clase 'active' solo al indicador seleccionado
                 });
             });
 
-            console.log("Carousel images added:", images);
+            console.log("Carrousel imagenes:", images);
 
             getJSONData(PRODUCT_COMMENTS_URL).then(function (commentsRes) {
                 if (commentsRes.status === "ok") {
                     initialComments = commentsRes.data;
-                    loadComments() // Mostrar comentarios
+                    showComments()
                 }
             }).catch(function (error) {
                 console.error('Error al obtener los comentarios del producto:', error);
@@ -104,152 +105,131 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-let initialComments = []; // Variable para almacenar los comentarios iniciales
-let comments = []; // Array para almacenar todos los comentarios combinados
-let newComments = []; // Array para almacenar los comentarios de sessionStorage
-let selectedRating = 0; // Variable para almacenar la calificación seleccionada
-let containerComments = document.getElementById('container-comments');
+    let comments = []; // los comentarios combinados 
+    let newComments = []; // comentarios de sessionStorage
+    let selectedRating = 0; // calificación seleccionada
+    let containerComments = document.getElementById('container-comments');
 
-if (!containerComments) {
-    console.error('Error: No se encuentra el contenedor de comentarios.');
-}
+    // funcion para mostrar los comentarios guardados
+    function showComments() {
 
-// Función para cargar y mostrar los comentarios almacenados
-function loadComments() {
-    // Cargar comentarios de localStorage y sessionStorage
-    const storedNewComments = JSON.parse(sessionStorage.getItem('newComments')) || [];
+        const newFormComments = JSON.parse(sessionStorage.getItem('newComments')) || [];
     
-    // Combinar los comentarios iniciales con los almacenados
-    comments = [...initialComments, ...storedNewComments];
+        // combinar los comentarios iniciales con los nuevos
+        comments = initialComments.concat(newFormComments);
 
-    if (comments.length === 0) {
-        containerComments.innerHTML = `<p>No hay comentarios aún. Sé el primero en dejar uno!</p>`;
-    } else {
         containerComments.innerHTML = `<h3>Calificaciones:</h3>`;
-        comments.forEach(comment => addCommentToDOM(comment));
+        comments.forEach(comment => {
+            let stars = '★'.repeat(comment.score) + '☆'.repeat(5 - comment.score);
+            containerComments.innerHTML += `
+                <div class="comment">
+                    <strong>${comment.user}</strong> - <small>${new Date(comment.dateTime).toLocaleDateString()}</small>
+                    <div class="stars">${stars}</div>
+                    <p>${comment.description}</p>
+                </div>
+            `;
+        });
     }
-    console.log("Comments loaded:", comments);
-}
+    
+    console.log("Comentarios:", comments);
 
-// Función para agregar un comentario al DOM con el formato adecuado
-function addCommentToDOM(comment) {
-    let stars = '★'.repeat(comment.score) + '☆'.repeat(5 - comment.score);
-
-    containerComments.innerHTML += `
-        <div class="comment">
-            <strong>${comment.user}</strong> - <small>${new Date(comment.dateTime).toLocaleDateString()}</small>
-            <div class="stars">${stars}</div>
-            <p>${comment.description}</p>
-        </div>
-    `;
-}
-
-// Manejar el evento de selección de calificación
-document.querySelectorAll('.rating i').forEach(star => {
-    star.addEventListener('click', function() {
-        selectedRating = parseInt(this.getAttribute('data-value'));
-        highlightStars(selectedRating);
+    // seleccion de calificacion que devuelve un numero
+    document.querySelectorAll('.rating i').forEach(star => {
+        star.addEventListener('click', function() {
+            selectedRating = parseInt(this.getAttribute('data-value'));
+            highlightStars(selectedRating);
+        });
     });
-});
 
-// Función para resaltar las estrellas según la calificación seleccionada
-function highlightStars(rating) {
-    const stars = document.querySelectorAll('.rating i');
-    stars.forEach(star => {
-        if (parseInt(star.getAttribute('data-value')) <= rating) {
-            star.classList.add('text-warning'); // Cambia el color de las estrellas llenas
-        } else {
-            star.classList.remove('text-warning'); // Quita el color de las estrellas vacías
+    // resaltar las estrellas segun la calificacion seleccionada
+    function highlightStars(rating) {
+        const stars = document.querySelectorAll('.rating i');
+        stars.forEach(star => {
+            if (parseInt(star.getAttribute('data-value')) <= rating) {
+                star.classList.add('text-warning'); // cambio color estrellas llenas
+            } else {
+                star.classList.remove('text-warning'); // saca color estrellas vacías
+            }
+        });
+    }   
+
+    // envío del formulario
+    function commentSubmit(event) {
+        event.preventDefault();
+
+        const messageInput = document.getElementById('msg');
+        const usernameInput = document.getElementById('username');
+        const newComment = messageInput.value.trim();
+        const username = usernameInput.value.trim();
+
+        console.log("Comment submission attempt:", { newComment, username, selectedRating });
+
+        if (!newComment || selectedRating === 0 || !username) {
+            showAlert();
+            return; // no se envia si no esta completo
         }
-    });
-}
 
-// Nueva función para manejar el envío del formulario
-function handleCommentSubmit(event) {
-    event.preventDefault();
+        const dateTime = new Date().toISOString();
+        const commentData = { description: newComment, score: selectedRating, user: username, dateTime };
 
-    const messageInput = document.getElementById('msg');
-    const usernameInput = document.getElementById('username');
-    const newComment = messageInput.value.trim();
-    const username = usernameInput.value.trim();
+        addNewComment(commentData); // guardar en sessionStorage
 
-    console.log("Comment submission attempt:", { newComment, username, selectedRating });
+    }
+    
+    function showAlert() {
+        const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-danger alert-dismissible fade show';
+            alert.innerHTML = `
+                Por favor, completa todos los campos para enviar tu comentario.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            `;
+            alertPlaceholder.append(alert); // alerta para completar los campos para poder enviar
 
-    if (!newComment || selectedRating === 0 || !username) {
+            setTimeout(() => {
+                alert.remove();
+            }, 3000);
+    }
+    
+
+    // agregar el comentario y almacenamiento en sessionStorage
+    function addNewComment(commentData) {
+        const newComment = {
+            product: productID , 
+            score: commentData.score,
+            description: commentData.description,
+            user: commentData.user,
+            dateTime: commentData.dateTime
+        };
+
+        newComments.push(newComment);
+        sessionStorage.setItem('newComments', JSON.stringify(newComments));
+        showComments();
+        showSuccessAlert('¡Comentario enviado exitosamente!');
+
+        // limpia el formulario
+        document.getElementById("comment-form").reset();
+        selectedRating = 0;
+        highlightStars(0);
+    }
+
+    function showSuccessAlert(message) {
         const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
         const alert = document.createElement('div');
-        alert.className = 'alert alert-danger alert-dismissible fade show';
+        alert.className = 'alert alert-success alert-dismissible fade show';
         alert.innerHTML = `
-            Por favor, completa todos los campos para enviar tu comentario.
+            ${message}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         `;
         alertPlaceholder.append(alert);
-
-        // Desaparece la alerta después de 3 segundos
+    
         setTimeout(() => {
             alert.remove();
         }, 3000);
+    }    
 
-        return; // Detener el envío si los campos no están completos
-    }
-
-    const dateTime = new Date().toISOString();
-    const commentData = { description: newComment, score: selectedRating, user: username, dateTime };
-
-    addNewComment(commentData); // Guardar en sessionStorage
-
-}
-
-// Nueva función para agregar el comentario y manejar el almacenamiento en sessionStorage
-function addNewComment(commentData) {
-    const newComment = {
-        product: productID , // Asegúrate de usar el ID correcto del producto
-        score: commentData.score,
-        description: commentData.description,
-        user: commentData.user,
-        dateTime: commentData.dateTime
-    };
-
-    // Verifica si hay comentarios en sessionStorage y los carga
-    if (sessionStorage.getItem('newComments')) {
-        newComments = JSON.parse(sessionStorage.getItem('newComments'));
-    }
-
-    newComments.push(newComment);
-    saveNewCommentsToSessionStorage(); // Guardar en sessionStorage
-
-    // Agregar el nuevo comentario al DOM
-    addCommentToDOM(newComment);
-
-    // Mostrar alerta de Bootstrap
-    const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
-    const alert = document.createElement('div');
-    alert.className = 'alert alert-success alert-dismissible fade show';
-    alert.innerHTML = `
-        Comentario enviado exitosamente!
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    `;
-    alertPlaceholder.append(alert);
-
-    // Desaparece la alerta después de 3 segundos
-    setTimeout(() => {
-        alert.remove();
-    }, 3000); // 3000 milisegundos = 3 segundos
-
-    // Limpiar el formulario
-    document.getElementById("comment-form").reset();
-    selectedRating = 0;
-    highlightStars(0);
-}
-
-// Manejo del envío del formulario
-document.querySelector('.comment-form').addEventListener('submit', handleCommentSubmit);
-
-// Función para guardar nuevos comentarios en sessionStorage
-function saveNewCommentsToSessionStorage() {
-    sessionStorage.setItem('newComments', JSON.stringify(newComments));
-    console.log("Nuevo comentario a sessionStorage:", newComments);
-}
+    // envío del formulario, se ejecuta la funcion
+    document.querySelector('.comment-form').addEventListener('submit', commentSubmit);
 
 });
 
