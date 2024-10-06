@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="card-body-product-info">
                             <h2 class="card-title-product-info">${productInfo.name}</h2>
                             <a class="card-category-product-info" href="products.html">${productInfo.category}</a>
-                            <h5 class="price-product-info">USD: ${productInfo.cost}</h5>
+                            <h5 class="price-product-info">${productInfo.currency}: ${productInfo.cost}</h5>
                             <small class="text-muted">Cantidad vendidos: ${productInfo.soldCount}</small>
                             <p class="card-text-product-info">${productInfo.description}</p>
                         </div>
