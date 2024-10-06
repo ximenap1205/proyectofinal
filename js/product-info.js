@@ -95,9 +95,46 @@ document.addEventListener("DOMContentLoaded", function () {
                     initialComments = commentsRes.data;
                     showComments()
                 }
-            }).catch(function (error) {
+            })
+            .catch(function (error) {
                 console.error('Error al obtener los comentarios del producto:', error);
             });
+
+            // productos relacionados
+            let relatedProducts = productInfo.relatedProducts; // Array de productos relacionados
+            let relatedProductsContainer = document.getElementById('related-products-container');
+
+            // Agregar un título de la sección antes de las tarjetas
+            let sectionTitle = document.createElement("h3");
+            sectionTitle.className = "text-center my-4"; // Agregamos clases de Bootstrap para centrado y margen
+            sectionTitle.innerText = "Productos Relacionados";
+
+            // Insertamos el título antes del contenedor de las tarjetas
+            relatedProductsContainer.before(sectionTitle);
+            relatedProductsContainer.classList.add('row', "justify-content-evenly",'g-3');
+
+            relatedProducts.forEach(function (relatedProduct) {
+                let relatedProductElement = document.createElement("div");
+                relatedProductElement.className = "col-sm-6 col-md-4 col-lg-3 text-center";
+                relatedProductElement.setAttribute('data-id', relatedProduct.id);
+                relatedProductElement.innerHTML = `
+                            <div class="card h-100">
+                                <img src="${relatedProduct.image}" class="card-img-top" alt="${relatedProduct.name}">
+                                <div class="card-body">
+                                    <h5 class="card-title">${relatedProduct.name}</h5>
+                                </div>
+                            </div>
+                `;
+
+                // Actualizar el productID en localStorage al hacer clic en el producto relacionado
+                relatedProductElement.addEventListener('click', function() {
+                    localStorage.setItem("productID", relatedProduct.id);
+                    window.location = "product-info.html";
+                });
+
+                relatedProductsContainer.appendChild(relatedProductElement);
+            });
+            
 
         }
     }).catch(function (error) {
@@ -106,7 +143,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     let comments = []; // los comentarios combinados 
-    let newComments = []; // comentarios de sessionStorage
     let selectedRating = 0; // calificación seleccionada
     let containerComments = document.getElementById('container-comments');
 
@@ -115,11 +151,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const newFormComments = JSON.parse(sessionStorage.getItem('newComments')) || [];
     
+        // obtener solo los comentarios del productID actual
+        const newCommentsForCurrentProduct = newFormComments[productID] || [];
+        
         // combinar los comentarios iniciales con los nuevos
-        comments = initialComments.concat(newFormComments);
+        comments = initialComments.concat(newCommentsForCurrentProduct);
 
         containerComments.innerHTML = `<h3>Calificaciones:</h3>`;
-        comments.forEach(comment => {
+        if (comments.length === 0) {
+            containerComments.innerHTML += `<p>¡Sé el primero en comentar!</p>`;
+        } else {comments.forEach(comment => {
             let stars = '★'.repeat(comment.score) + '☆'.repeat(5 - comment.score);
             containerComments.innerHTML += `
                 <div class="comment">
@@ -128,7 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p>${comment.description}</p>
                 </div>
             `;
-        });
+            });
+        }
     }
     
     console.log("Comentarios:", comments);
@@ -202,8 +244,14 @@ document.addEventListener("DOMContentLoaded", function () {
             dateTime: commentData.dateTime
         };
 
-        newComments.push(newComment);
-        sessionStorage.setItem('newComments', JSON.stringify(newComments));
+        let existingComments = JSON.parse(sessionStorage.getItem('newComments')) || {};
+
+        if (!existingComments[productID]) {
+            existingComments[productID] = [];
+        }
+        existingComments[productID].push(newComment);
+
+        sessionStorage.setItem('newComments', JSON.stringify(existingComments));
         showComments();
         showSuccessAlert('¡Comentario enviado exitosamente!');
 
