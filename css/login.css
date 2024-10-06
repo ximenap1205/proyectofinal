@@ -11,6 +11,7 @@
        border-color: white;
        border-style: solid;
        border-radius: 30px;
+       margin-left: 60%;
 }
 .loginn label{
     padding-top: 40px;
@@ -43,10 +44,7 @@ button {
          font-weight: 700; 
          box-shadow: 0px 0px 4px 1px rgb(199, 129, 0);
 }
-body{
-    background-image: url("./img/captura.jpg");
-    background-size: cover;
-}
+
 
 .botonn{
     color: grey;
@@ -54,36 +52,100 @@ body{
 p {
     color: grey;
     padding-top: 10px;
+    cursor: pointer;
 }
 u {
     color: grey;
 }
+img{
+    margin-top: 150px;
+    position: absolute;
+    
+    width: 700px;
+  }
+  
+  a{
+    color: rgb(231, 150, 0);
+  }
 
-@media (max-width: 1024px){
-    .loginn {
-     margin-top: 200px;
+  a:hover{
+    color: rgb(199, 129, 0);
+  }
+
+@media (max-width: 1280px){
+    img{
+        margin-top: 150px;
+        width: 400px;
+        margin-left: 100px;
     }
-     body {
-         background-size: cover;
-         background-position: left;
-         background-repeat: no-repeat;
-         height: 1200px;
-     }
+    .loginn{
+        width: 400px;
+        margin-top: 50px;
+        height: 550px;
+    }
   
  }
+
+ @media (max-width: 102px) {
+img{
+    margin-top: auto;
+    width: 80%;
+    position: relative;
+    margin-left: 10%;
+   
+}
+    .loginn {
+        width: 60%;
+        margin-top: 100px;
+        margin:auto;
+      }
+
+
+
+ }
+
 @media (max-width: 667px) {
+    
+    img {
+        margin-top: auto;
+        width: 80%;
+        position: relative;
+        margin: auto;
+        margin-left: 10%;
+    }
     .loginn {
       width: 80%;
-      height: 550px;
-      margin-top: 70px;
+      height: 50%;
+      margin-top: 100px;
+      margin:auto;
     }
+      .loginn input{
+        border-width: 2px;
+        border-color: yellow;
+           border-style: solid;
+           border-radius: 40px;
+           padding-left: 30px;
+           padding-top: 5px;
+           padding-bottom: 5px;
+           background-color: rgb(224, 224, 224);
+           
+    
+           }
+           .loginn h1{
+            color: rgb(231, 150, 0);
+            font-weight: 700;
+            margin-top: 0px;
+        }
+      
+    
+  
     button {
         margin-top: auto;
     }
-    body {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+
+    .botonn {
+        margin-bottom: 20px;
     }
+    
 
   }
