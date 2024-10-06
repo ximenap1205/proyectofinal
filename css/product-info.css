@@ -17,7 +17,7 @@
     resize: vertical;
   }
   
-  .btn-submit {
+  .btn {
     margin-top: 10px;
     padding: 10px 15px;
     background-color: #ec8601;
@@ -27,7 +27,7 @@
     cursor: pointer;
   }
   
-  .btn-submit:hover {
+  .btn:hover {
     background-color: #f1d96c;
   }
   /* Seccion de comentarios */
