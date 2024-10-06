@@ -101,15 +101,13 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             // productos relacionados
-            let relatedProducts = productInfo.relatedProducts; // Array de productos relacionados
+            let relatedProducts = productInfo.relatedProducts; // array de productos relacionados
             let relatedProductsContainer = document.getElementById('related-products-container');
 
-            // Agregar un título de la sección antes de las tarjetas
             let sectionTitle = document.createElement("h3");
-            sectionTitle.className = "text-center my-4"; // Agregamos clases de Bootstrap para centrado y margen
+            sectionTitle.className = "text-center my-4";
             sectionTitle.innerText = "Productos Relacionados";
 
-            // Insertamos el título antes del contenedor de las tarjetas
             relatedProductsContainer.before(sectionTitle);
             relatedProductsContainer.classList.add('row', "justify-content-evenly",'g-3');
 
@@ -188,9 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const stars = document.querySelectorAll('.rating i');
         stars.forEach(star => {
             if (parseInt(star.getAttribute('data-value')) <= rating) {
-                star.classList.add('text-warning'); // cambio color estrellas llenas
+                star.classList.add('star-custom'); // cambio color estrellas llenas
             } else {
-                star.classList.remove('text-warning'); // saca color estrellas vacías
+                star.classList.remove('star-custom'); // saca color estrellas vacías
             }
         });
     }   

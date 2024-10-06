@@ -89,3 +89,46 @@
 .carousel-item.active {
   display: block; /* Solo muestra la imagen activa */
 }
+
+.card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  background-color: rgb(223, 223, 223);
+}
+
+.card {
+  border: 0.2rem solid #ccc;
+  border-radius: 3rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  padding: 2rem;
+}
+
+.card-img-top {
+  height: 80%;
+  border-radius: 2rem;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-title:hover {
+  text-decoration: underline;
+}
+
+.bi-star-fill {
+  color: white;
+}
+
+.bi-star-fill:hover {
+cursor: pointer;
+}
+
+.star-custom {
+  color: #ec8601;
+}
+
+.rating {
+  margin-bottom: 1rem;
+}
