@@ -63,7 +63,7 @@ function showCategoriesList(productsToShow) {
                 <div class="card-body-product">
                     <h5 class="card-title-product">${producto.name}</h5>
                     <p class="card-text-product">${producto.description}</p>
-                    <h5 class="price-product">${producto.currency}: ${producto.cost}</h5>
+                    <h5 class="price-product">USD: ${producto.cost}</h5>
                     <small class="text-muted">Cantidad vendidos: ${producto.soldCount}</small>
                 </div>
             `;
