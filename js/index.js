@@ -13,9 +13,26 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
+//Visibilidad del nombre de usuario
 document.addEventListener("DOMContentLoaded", function () {
-    let userName = localStorage.getItem('user');
+    let userName = sessionStorage.getItem('email');
     if (userName) {
-        document.getElementById("user-container").textContent =`${userName}`;
+        document.getElementById("user-container").textContent = userName;
     }
 });
+
+//Funcionalidad para el boton de cerrar sesion.
+document.getElementById('logout-btn').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    sessionStorage.removeItem('email'); 
+    localStorage.removeItem('nombre');
+    localStorage.removeItem('segundoNombre');
+    localStorage.removeItem('apellido');
+    localStorage.removeItem('segundoApellido');
+    localStorage.removeItem('telefono');
+    localStorage.removeItem('modoDiaNoche');
+});
+
+    location.replace('login.html');
+    
