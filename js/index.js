@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    let userName = localStorage.getItem('user');
+    let userName = localStorage.getItem('email');
     if (userName) {
         document.getElementById("user-container").textContent =`${userName}`;
     }
