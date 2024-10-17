@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const email = sessionStorage.getItem('email');
   const campo = document.getElementById('email');
 
-  if (!isLoggedIn) {
+  if (!email) {
       window.location.href = "login.html"; 
   }
+  campo.value=email;
 
   const isFirstAccess = !sessionStorage.getItem('firstAccess');
 
