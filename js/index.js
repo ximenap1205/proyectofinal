@@ -32,6 +32,8 @@ document.getElementById('logout-btn').addEventListener('click', function(event) 
     localStorage.removeItem('segundoApellido');
     localStorage.removeItem('telefono');
     localStorage.removeItem('modoDiaNoche');
-});
 
     location.replace('login.html');
+});
+
+    
