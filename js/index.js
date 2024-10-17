@@ -33,7 +33,7 @@ document.getElementById('logout-btn').addEventListener('click', function(event) 
     localStorage.removeItem('telefono');
     localStorage.removeItem('modoDiaNoche');
 
-    location.replace('login.html');
+    location.replace('index.html');
 });
 
     
