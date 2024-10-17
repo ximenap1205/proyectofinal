@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById('logout-btn').addEventListener('click', function(event) {
     event.preventDefault();
 
-    localStorage.removeItem('email'); 
+    sessionStorage.removeItem('email'); 
     localStorage.removeItem('nombre');
     localStorage.removeItem('segundoNombre');
     localStorage.removeItem('apellido');
