@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 //Visibilidad del nombre de usuario
 document.addEventListener("DOMContentLoaded", function () {
-    let userName = sessionStorage.getItem('email');
+    let userName = localStorage.getItem('email');
     if (userName) {
         document.getElementById("user-container").textContent = userName;
     }
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById('logout-btn').addEventListener('click', function(event) {
     event.preventDefault();
 
-    sessionStorage.removeItem('email'); 
+    localStorage.removeItem('email'); 
     localStorage.removeItem('nombre');
     localStorage.removeItem('segundoNombre');
     localStorage.removeItem('apellido');
@@ -35,4 +35,3 @@ document.getElementById('logout-btn').addEventListener('click', function(event) 
 });
 
     location.replace('login.html');
-    

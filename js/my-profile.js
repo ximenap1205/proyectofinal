@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const isLoggedIn = true;
   const email = sessionStorage.getItem('email');
   const campo = document.getElementById('email');
 
@@ -8,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   campo.value=email;
 
-  const isFirstAccess = !sessionStorage.getItem('firstAccess');
+  const isFirstAccess = !localStorage.getItem('firstAccess');
 
   if (isFirstAccess) {
       document.getElementById('nombre').value = '';
@@ -17,18 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('segundo-apellido').value = '';
       document.getElementById('telefono').value = '';
       
-      sessionStorage.setItem('firstAccess', true);
+      localStorage.setItem('firstAccess', true);
   } else {
       if (email) {
           campo.value = email;
       }
 
-      document.getElementById('nombre').value = sessionStorage.getItem('nombre') || '';
-      document.getElementById('segundo-nombre').value = sessionStorage.getItem('segundoNombre') || '';
-      document.getElementById('apellido').value = sessionStorage.getItem('apellido') || '';
-      document.getElementById('segundo-apellido').value = sessionStorage.getItem('segundoApellido') || '';
-      document.getElementById('telefono').value = sessionStorage.getItem('telefono') || '';
-      const modoDiaNoche = sessionStorage.getItem('modoDiaNoche');
+      document.getElementById('nombre').value = localStorage.getItem('nombre') || '';
+      document.getElementById('segundo-nombre').value = localStorage.getItem('segundoNombre') || '';
+      document.getElementById('apellido').value = localStorage.getItem('apellido') || '';
+      document.getElementById('segundo-apellido').value = localStorage.getItem('segundoApellido') || '';
+      document.getElementById('telefono').value = localStorage.getItem('telefono') || '';
+      const modoDiaNoche = localStorage.getItem('modoDiaNoche');
       if (modoDiaNoche === "noche") document.getElementById('modo-dia-noche').checked = true;
   }
 
@@ -41,12 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
       }
 
-      sessionStorage.setItem('nombre', nombre);
-      sessionStorage.setItem('segundoNombre', document.getElementById('segundo-nombre').value);
-      sessionStorage.setItem('apellido', apellido);
-      sessionStorage.setItem('segundoApellido', document.getElementById('segundo-apellido').value);
-      sessionStorage.setItem('telefono', document.getElementById('telefono').value);
-      sessionStorage.setItem('email', email);
+      localStorage.setItem('nombre', nombre);
+      localStorage.setItem('segundoNombre', document.getElementById('segundo-nombre').value);
+      localStorage.setItem('apellido', apellido);
+      localStorage.setItem('segundoApellido', document.getElementById('segundo-apellido').value);
+      localStorage.setItem('telefono', document.getElementById('telefono').value);
+      localStorage.setItem('email', email);
   });
 
   // Desafiate
@@ -66,5 +65,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
   });
 
-  sessionStorage.setItem('foto', document.getElementById('foto').value);
+  localStorage.setItem('foto', document.getElementById('foto').value);
 });
