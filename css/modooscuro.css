@@ -1,0 +1,15 @@
+#Toggle{
+    display: none;
+  }
+  #label_toggle{
+    font-size: 2em;
+    top: 10px;
+    right: 10px;
+   color: #f3630f;
+   cursor: pointer;
+  }
+  .dark{
+    background-color: #0c0d0e;
+    
+  }
+  
