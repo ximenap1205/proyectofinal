@@ -2,11 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const email = localStorage.getItem('email');
   const campo = document.getElementById('email');
 
-  if (!email) {
-      window.location.href = "login.html"; 
-  }
-  campo.value=email;
-
   const isFirstAccess = !localStorage.getItem('firstAccess');
 
   if (isFirstAccess) {
