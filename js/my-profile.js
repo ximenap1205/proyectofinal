@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const email = sessionStorage.getItem('email');
+  const email = localStorage.getItem('email');
   const campo = document.getElementById('email');
 
   const isFirstAccess = !localStorage.getItem('firstAccess');
