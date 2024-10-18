@@ -11,3 +11,4 @@ document.getElementById('boton').addEventListener('click', function(event) {
         alert('Please fill in the fields.');
     }
 });
+

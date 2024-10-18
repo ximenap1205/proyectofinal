@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 
-    
     //Visibilidad del nombre de usuario
 
     let userName = localStorage.getItem('email');

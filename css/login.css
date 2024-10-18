@@ -198,3 +198,29 @@ img{
     
 
   }
+
+/* MODO OSCURO ARRANCA ACA CHICAS  SOLO EL LOGIN*/
+
+body.dark {
+    background-color: #302e2e;
+    color: rgb(233, 227, 227); 
+}
+
+body.dark .loginn {
+    background: linear-gradient(#3a3a3a, #353131, #7a7a7a); 
+}
+
+body.dark input {
+    background-color: #444; 
+    color: rgb(248, 233, 233); 
+    border-color: #f1e8e8; 
+}
+
+body.dark button {
+    background-color: #e09e00; 
+    color: rgb(247, 246, 246); 
+}
+
+body.dark img {
+    filter: brightness(0.8); 
+}
