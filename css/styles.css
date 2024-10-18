@@ -868,3 +868,32 @@ div .dropdown {
   min-width: 100%; 
   box-sizing: border-box;
 }
+/* MODO OSCURO ARRANCA AQUI PRUEBITA */
+#products-body.dark {
+  background: linear-gradient(to bottom, #0c0c0c, #131312, #0c0c0c, #0e0d0d);
+}
+
+#product-info-body.dark {
+  background: linear-gradient(to bottom, #080808, #0f0f0f, #050505, #030303);
+}
+
+.comment.dark {
+  background-color: #444; 
+  border: 1px solid #666; 
+}
+#min.dark,
+#max.dark{
+  background-color: #434343; 
+}
+.card-product.dark {
+  background-color: #2A2A2A; 
+}
+#bot1.dark,
+#bot2.dark,
+#bot3.dark {
+  background-color: #1F1F1F; 
+}
+.card-product-info.dark {background-color: rgb(27, 27, 27);
+}
+.card-product.dark {background-color: rgb(27, 27, 27);
+}
