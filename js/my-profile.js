@@ -37,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!nombre || !apellido || !email) {
           alert("Complete los campos obligatorios.");
           return;
+      } else {
+        alert('Cambios guardados');
       }
 
       localStorage.setItem('nombre', nombre);
