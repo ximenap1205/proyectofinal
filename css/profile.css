@@ -8,7 +8,7 @@ body {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background: linear-gradient(#8D8781, #A99883, #F8D596);
   }
   
   h2 {
@@ -104,8 +104,14 @@ body {
     background-color:#ec8601;
     width: 50%;
     text-align: center;
+    margin-left: 25%;
+    border-radius: 5px;
+    color: white;
   }
   #img{
     max-width: 200px;
     max-height: 200px;
+  }
+  #guardar-btn {
+    background-color:#ec8601 ;
   }
