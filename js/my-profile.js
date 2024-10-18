@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const email = localStorage.getItem('email');
   const campo = document.getElementById('email');
 
+  
   const isFirstAccess = !localStorage.getItem('firstAccess');
+  
 
   if (isFirstAccess) {
       document.getElementById('nombre').value = '';
@@ -10,12 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('apellido').value = '';
       document.getElementById('segundo-apellido').value = '';
       document.getElementById('telefono').value = '';
-      
-      localStorage.setItem('firstAccess', true);
-  } else {
       if (email) {
-          campo.value = email;
-      }
+        campo.value = email;
+    }
+      localStorage.setItem('firstAccess', true);
+  } else { if (email) {
+    campo.value = email;
+}
+     
 
       document.getElementById('nombre').value = localStorage.getItem('nombre') || '';
       document.getElementById('segundo-nombre').value = localStorage.getItem('segundoNombre') || '';
