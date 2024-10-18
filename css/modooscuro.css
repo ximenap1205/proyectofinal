@@ -77,4 +77,9 @@
 #products-body.dark {
   background: linear-gradient(to bottom, #0c0c0c, #131312, #0c0c0c, #0e0d0d);
 }
+.dark .card-product{
+  background-color: #0e0d0d;
+  color: #8a8686;
+}
+
 
