@@ -36,6 +36,13 @@ body {
   
   img {
     border-radius: 50%;
+    width: 13rem;
+    height: 13rem;
+    background-size: cover;
+    margin: 0 auto;
+    background-position: center;
+    object-fit: cover;
+    object-position: center;
   }
   
   button {
@@ -50,6 +57,7 @@ body {
   
   button:hover {
     background-color: #218838;
+    cursor: pointer;
   }
   
 
@@ -105,4 +113,12 @@ body {
     width: 50%;
     text-align: center;
     margin-left: 25%;
+  }
+
+  #botfot:hover{
+    cursor: pointer;
+  }
+
+  #guardarbtn:hover{
+    cursor: pointer;
   }
