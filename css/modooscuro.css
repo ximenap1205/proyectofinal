@@ -12,4 +12,32 @@
     background-color: #0c0d0e;
     
   }
+  .dark {
+    background-color: #0d0d0e;
+  }
+  
+  body.dark {
+    background-color: #0e0d0d;
+    color: #0f0f0f;
+  }
+  
+  .dark .navbar {
+    background-color: #1c1c1c;
+  }
+  
+  .dark .card {
+    background-color: #2c2c2c;
+    color: #817f7f;
+  }
+  /* MODO OSCURO ARRANCA AQUI PRUEBITA */
+  #products-body.dark {
+    background: linear-gradient(to bottom, #0c0c0c, #131312, #0c0c0c, #0e0d0d);
+  }
+  
+  #product-info-body.dark {
+    background: linear-gradient(to bottom, #080808, #0f0f0f, #050505, #030303);
+  }
+  
+  
+  
   
