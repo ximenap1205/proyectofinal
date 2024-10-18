@@ -30,14 +30,51 @@
     color: #817f7f;
   }
   /* MODO OSCURO ARRANCA AQUI PRUEBITA */
-  #products-body.dark {
-    background: linear-gradient(to bottom, #0c0c0c, #131312, #0c0c0c, #0e0d0d);
-  }
+ 
   
-  #product-info-body.dark {
-    background: linear-gradient(to bottom, #080808, #0f0f0f, #050505, #030303);
-  }
-  
-  
-  
-  
+  /* MODO OSCURO INDEX*/
+.dark .jumbotron{
+  filter: brightness(0.9); 
+}
+.dark .album{
+  background: #030303;
+}
+/*MODO OSCURO CATEGORIAS*/
+.dark .btn {
+  background-color: #0e0d0d;
+  color:#8a8686;
+}
+.dark .form-control{
+  background-color: #0e0d0d; 
+}
+
+.dark .row {
+  background-color: #0e0d0d;
+  color: #8a8686; 
+}
+/*MODO OSCURO MY PROFILE*/
+
+/*MODO OSCURO PRODUCT INFO*/
+#product-info-body.dark {
+  background: linear-gradient(to bottom, #080808, #0f0f0f, #050505, #030303);
+}
+.dark .star-custom {
+  color: #0e0d0d;
+}
+.dark .card{
+  background-color: #0e0d0d;
+}
+.dark .card-product-info{
+  background-color: #0e0d0d;
+  color:#8a8686;
+}
+.dark .comment{
+  background-color: #0e0d0d;
+  color: #8a8686;
+}
+
+/*MODO OSCURO PRODUCTS*/
+#products-body.dark {
+  background: linear-gradient(to bottom, #0c0c0c, #131312, #0c0c0c, #0e0d0d);
+}
+
