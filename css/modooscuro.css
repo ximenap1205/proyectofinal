@@ -93,3 +93,8 @@ body.dark button {
 body.dark img {
   filter: brightness(0.7);
 }
+
+.dark .bg-light {
+  background-color: #1e1e1e !important; /* Fondo oscuro */
+  color: #ffffff !important; /* Texto claro */
+}
