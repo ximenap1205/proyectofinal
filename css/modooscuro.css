@@ -1,78 +1,100 @@
 #Toggle{
-    display: none;
-  }
-  #label_toggle{
-    font-size: 2em;
-    top: 10px;
-    right: 10px;
-   color: #f3630f;
-   cursor: pointer;
-  }
-  .dark{
-    background-color: #0c0d0e;
-    
-  }
-  .dark {
-    background-color: #0d0d0e;
-  }
+  display: none;
+}
+#label_toggle{
+  font-size: 2em;
+  top: 10px;
+  right: 10px;
+ color: #ec7028;
+ cursor: pointer;
+}
+.dark{
+  background-color: #333232
   
-  body.dark {
-    background-color: #0e0d0d;
-    color: #2e2c2c;
-  }
-  
-  .dark .navbar {
-    background-color: #1c1c1c;
-  }
-  
-  .dark .card {
-    background-color: #2c2c2c;
-    color: #817f7f;
-  }
-  /* MODO OSCURO ARRANCA AQUI PRUEBITA */
- 
-  
-  /* MODO OSCURO INDEX*/
+}
+
+
+body.dark {
+  background-color: #333232;
+  color: #a09d9d;
+}
+
+.dark .navbar {
+  background-color: #333232;
+}
+
+.dark .card {
+  background-color:#333232;
+  color: #a09d9d;
+}
+/* MODO OSCURO ARRANCA AQUI PRUEBITA */
+
+
+/* MODO OSCURO INDEX*/
 .dark .jumbotron{
-  filter: brightness(0.9); 
+filter: brightness(0.5); 
 }
 .dark .album{
-  background: #0e0d0d;
+background: #333232;
 }
 
 
 /*MODO OSCURO CATEGORIAS*/
 
 .dark .row {
-  background-color: #0e0d0d;
-  color: #8a8686; 
+background-color:#333232;
+color: #8a8686; 
 }
 /*MODO OSCURO MY PROFILE*/
 
 /*MODO OSCURO PRODUCT INFO*/
 #product-info-body.dark {
-  background: linear-gradient(to bottom, #080808, #0f0f0f, #050505, #030303);
+background: linear-gradient(to bottom, #333232, #333232, #333232, #333232);
 }
 
 .dark .card{
-  background-color: #0e0d0d;
+background-color: #333232;
 }
 .dark .card-product-info{
-  background-color: #0e0d0d;
-  color:#8a8686;
+background-color: #333232;
+color:#a09d9d;
 }
 .dark .comment{
-  background-color: #0e0d0d;
-  color: #8a8686;
+background-color: #333232;
+color: #a09d9d;
 }
 
 /*MODO OSCURO PRODUCTS*/
 #products-body.dark {
-  background: linear-gradient(to bottom, #0c0c0c, #0e0e0d, #0c0c0c, #0e0d0d);
+background: linear-gradient(to bottom, #333232,#333232, #333232, #333232);
 }
 .dark .card-product{
-  background-color: #0e0d0d;
-  color: #8a8686;
+background-color: #333232;
+color:#a09d9d;
 }
 
+/* MODO OSCURO ARRANCA ACA CHICAS  SOLO EL LOGIN*/
 
+body.dark {
+  background-color: #333232;
+  color: rgb(197, 190, 190); 
+}
+
+body.dark .loginn {
+  background: linear-gradient(#292929, #353131, #7a7a7a); 
+}
+
+body.dark input {
+  background-color: #444; 
+  color: rgb(248, 233, 233); 
+  border-color: #f1e8e8; 
+}
+
+body.dark button {
+  background-color: #dfaa30; 
+  color: rgb(247, 246, 246); 
+}
+
+body.dark img {
+  filter: brightness(0.8); 
+}
