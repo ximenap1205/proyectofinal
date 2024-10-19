@@ -101,7 +101,7 @@ body.dark input {
 }
 
 body.dark button {
-  background-color: rgba(104, 104, 103, 0.5);
+ background-color: rgba(104, 104, 103, 0);
 ; 
   color: rgb(247, 246, 246); 
 }
