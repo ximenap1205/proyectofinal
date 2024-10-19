@@ -38,12 +38,12 @@ filter: brightness(0.5);
 background: #333232;
 }
 .dark .bg-light {
-  background-color: #333232 !important; /* Fondo oscuro */
-  color: #ffffff !important; /* Texto claro */
+  background-color: #333232 !important; 
+  color: #ffffff !important; 
 }
 .dark .btn-light{
-  background-color: #333232 !important; /* Fondo oscuro */
-  color: #ffffff !important; /* Texto claro */
+  background-color: #333232 !important; 
+  color: #ffffff !important; 
 }
 
 /*MODO OSCURO CATEGORIAS*/
