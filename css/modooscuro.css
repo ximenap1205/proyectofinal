@@ -98,3 +98,6 @@ body.dark img {
   background-color: #1e1e1e !important; /* Fondo oscuro */
   color: #ffffff !important; /* Texto claro */
 }
+#profile-page.dark{
+background: linear-gradient(#0c0c0c, #242323, #333332);
+}
