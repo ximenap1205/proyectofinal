@@ -1,103 +1,155 @@
-#Toggle {
+#Toggle{
   display: none;
 }
-#label_toggle {
+#label_toggle{
   font-size: 2em;
   top: 10px;
   right: 10px;
-  color: #ec7028;
-  cursor: pointer;
+ color: #ec7028;
+ cursor: pointer;
 }
-.dark {
-  background-color: #1a1a1a;
+.dark{
+  background-color: #333232
+  
 }
 
-/* MODO OSCURO BODY */
+
 body.dark {
-  background-color: #1a1a1a;
-  color: #c4c4c4;
+  background-color: #333232;
+  color: #a09d9d;
 }
 
 .dark .navbar {
-  background-color: #1a1a1a;
+  background-color: #333232;
 }
 
 .dark .card {
-  background-color: #1a1a1a;
-  color: #c4c4c4;
+  background-color:#333232;
+  color: #a09d9d;
 }
 /* MODO OSCURO ARRANCA AQUI PRUEBITA */
 
-/* MODO OSCURO INDEX */
-.dark .jumbotron {
-  filter: brightness(0.4);
+
+/* MODO OSCURO INDEX*/
+.dark .jumbotron{
+filter: brightness(0.5); 
 }
-.dark .album {
-  background: #1a1a1a;
+.dark .album{
+background: #333232;
+}
+.dark .bg-light {
+  background-color: #333232 !important; /* Fondo oscuro */
+  color: #ffffff !important; /* Texto claro */
+}
+.dark .btn-light{
+  background-color: #333232 !important; /* Fondo oscuro */
+  color: #ffffff !important; /* Texto claro */
 }
 
-/* MODO OSCURO CATEGORIAS */
+/*MODO OSCURO CATEGORIAS*/
+
 .dark .row {
-  background-color: #1a1a1a;
-  color: #b0b0b0;
+background-color:#333232;
+color: #8a8686; 
 }
-/* MODO OSCURO MY PROFILE */
 
-/* MODO OSCURO PRODUCT INFO */
+
+/*MODO OSCURO PRODUCT INFO*/
 #product-info-body.dark {
-  background: linear-gradient(to bottom, #1a1a1a, #1a1a1a, #1a1a1a, #1a1a1a);
+background: linear-gradient(to bottom, #333232, #333232, #333232, #333232);
 }
 
-.dark .card {
-  background-color: #1a1a1a;
+.dark .card{
+background-color: #333232;
 }
-.dark .card-product-info {
-  background-color: #1a1a1a;
-  color: #c4c4c4;
+.dark .card-product-info{
+background-color: #333232;
+color:#a09d9d;
 }
-.dark .comment {
-  background-color: #1a1a1a;
-  color: #c4c4c4;
+.dark .comment{
+background-color: #333232;
+color: #a09d9d;
+}
+.dark .form-control{
+  background-color: #2c2c2c !important;
 }
 
-/* MODO OSCURO PRODUCTS */
+/*MODO OSCURO PRODUCTS*/
 #products-body.dark {
-  background: linear-gradient(to bottom, #1a1a1a, #1a1a1a, #1a1a1a, #1a1a1a);
+background: linear-gradient(to bottom, #333232,#333232, #333232, #333232);
 }
-.dark .card-product {
-  background-color: #1a1a1a;
-  color: #c4c4c4;
+.dark .card-product{
+background-color: #333232;
+color:#a09d9d;
 }
 
-/* MODO OSCURO ARRANCA ACA CHICAS SOLO EL LOGIN */
+/* MODO OSCURO ARRANCA ACA CHICAS  SOLO EL LOGIN*/
+
 body.dark {
-  background-color: #1a1a1a;
-  color: #c5bebf;
+  background-color: #333232;
+  color: rgb(197, 190, 190); 
 }
 
 body.dark .loginn {
-  background: linear-gradient(#474646, #252525, #353535);
+  background: linear-gradient(#292929, #353131, #7a7a7a); 
 }
 
 body.dark input {
-  background-color: #333;
-  color: #f8e9e9;
-  border-color: #e0d7d7;
+  background-color: #444; 
+  color: rgb(248, 233, 233); 
+  border-color: #f1e8e8; 
 }
 
 body.dark button {
-  background-color: #dfaa30;
-  color: #f7f6f6;
+  background-color: #dfaa30; 
+  color: rgb(247, 246, 246); 
 }
 
 body.dark img {
-  filter: brightness(0.7);
+  filter: brightness(0.5); 
 }
 
-.dark .bg-light {
-  background-color: #1e1e1e !important; /* Fondo oscuro */
-  color: #ffffff !important; /* Texto claro */
+/* modooscuro parte del perfil*/
+body.dark {
+  background-color: #333232;
+  color: #ffffff;
 }
-#profile-page.dark{
-background: linear-gradient(#0c0c0c, #242323, #333332);
+
+.dark #profile-page {
+  background: linear-gradient(#333333, #444444, #555555);
+  border-color: #444444;
+}
+
+.dark input {
+  background-color: #333333;
+  color: #ffffff;
+  border-color: #444444;
+}
+
+.dark button {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+.dark footer {
+  background-color:#333232;
+  color: #ffffff;
+}
+.dark file-upload{
+  background-color:#333232;
+  color: #ffffff;
+}
+
+/* modooscuro parte del vender gente*/
+.dark .needsclick{
+  background-color: #333232 !important;
+}
+
+.dark .list-group-item{
+  background-color:#333232;
+  color: #ffffff;
+}
+.dark .form-select{
+  background-color:#333232;
+  color: #ffffff;
 }
