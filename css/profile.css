@@ -1,24 +1,26 @@
 body {
-    font-family: Arial, sans-serif;
-  }
+  font-family: Arial, sans-serif;
+}
   
-  #profile-page {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background: linear-gradient(#8D8781, #A99883, #F8D596);
-  }
+#profile-page {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: linear-gradient(#8D8781, #A99883, #F8D596);
+}
   
-  h2 {
-    text-align: center;
-  }
+h2 {
+  text-align: center;
+  font-weight: bold;
+}
   
-  label {
-    display: block;
-    margin-top: 10px;
-  }
+label {
+  display: block;
+  margin-top: 10px;
+}
   
   input {
     width: 100%;
