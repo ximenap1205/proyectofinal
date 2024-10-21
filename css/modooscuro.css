@@ -138,8 +138,6 @@ body.dark .loginn {
 }
 
 .dark input {
-  background-color: var(--bg-dark) !important;
-  color: var(--text-light) !important;
   border-color: #444444;
 }
 
