@@ -315,7 +315,7 @@ if (logoutBtn) {
 
         document.getElementById("user").innerHTML = '';
       
-        location.replace('index.html');
+        location.replace('login.html');
     });
 }
 

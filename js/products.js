@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             document.getElementById("user").innerHTML = '';
           
-            location.replace('index.html');
+            location.replace('login.html');
         });
     }
 });

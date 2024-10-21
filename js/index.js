@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             document.getElementById("user").innerHTML = '';
           
-            location.replace('index.html');
+            location.replace('login.html');
         });
     }
 });
