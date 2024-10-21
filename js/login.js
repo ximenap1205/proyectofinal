@@ -1,13 +1,47 @@
-document.getElementById('boton').addEventListener('click', function(event) {
-    event.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
 
-    let email = document.getElementById('email').value;
-    let contra = document.getElementById('contra').value;
+    const emailInput = document.getElementById('email');
+    const contraInput = document.getElementById('contra');
+    const loginForm = document.getElementById('loginForm');
 
-    if (email && contra) {
-        localStorage.setItem('email', email);
-        location.replace('index.html');
+    emailInput.addEventListener('input', () => validateEmail(emailInput));
+    contraInput.addEventListener('input', () => validateField(contraInput));
+
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault(); // evita el envio por defecto
+
+        const emailValid = validateEmail(emailInput);
+        const passwordValid = validateField(contraInput);
+
+        if (emailValid && passwordValid) {
+            localStorage.setItem('email', emailInput.value);
+            location.replace('index.html');
+        }
+    });
+
+})
+
+function validateEmail(input) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // expresion regular para validar email
+    if (emailRegex.test(input.value.trim())) {
+        input.classList.remove('error');
+        input.classList.add('valid');
+        return true;
     } else {
-        alert('Please fill in the fields.');
+        input.classList.remove('valid');
+        input.classList.add('error');
+        return false;
     }
-});
+}
+
+function validateField(input) {
+    if (input.value.trim() !== "") {
+        input.classList.remove('error');
+        input.classList.add('valid');
+        return true;
+    } else {
+        input.classList.remove('valid');
+        input.classList.add('error');
+        return false;
+    }
+}

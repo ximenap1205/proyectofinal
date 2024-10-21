@@ -1,0 +1,162 @@
+/* TOGGLE */
+
+#Toggle{
+  display: none;
+}
+#label_toggle{
+  font-size: 2em;
+  top: 10px;
+  right: 10px;
+  color: #ec7028;
+  cursor: pointer;
+}
+
+/* VARIABLES GENERALES */
+
+:root {
+  --bg-dark: #333232;
+  --text-dark: #a09d9d;
+  --text-light: #ffffff;
+  --bg-input: #2c2c2c;
+}
+
+/* MODO OSCURO GENERAL */
+
+body.dark,
+.dark footer,
+.dark file-upload {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-dark) !important;
+}
+
+body.dark input {
+  background-color: #444;
+  color: rgb(248, 233, 233);
+  border-color: #f1e8e8;
+}
+
+body.dark button {
+  color: rgb(247, 246, 246);
+}
+
+.dropdown-item:active {
+  background-color: #444;
+}
+
+/* CARDS */
+.dark .card,
+.dark .card-product,
+.dark .card-product-info {
+  background-color: #444 !important;
+  color: var(--text-dark) !important;
+}
+
+.dark h5,
+.dark h4,
+.dark h3 {
+  color: #bbb3b3;
+}
+
+.dark .card:hover,
+.dark .card-product:hover {
+  background-color: #252525 !important;
+  color: var(--text-dark) !important;
+  border-color: #ec7028;
+}
+
+.dark .comment {
+  background-color: #444 !important;
+  color: var(--text-dark) !important;
+}
+
+.dark .comment strong {
+  color: white;
+}
+
+.dark .form-control {
+  background-color: var(--bg-input) !important;
+}
+
+/* INDEX */
+
+.dark .album{
+  background-color: var(--bg-dark) !important;
+}
+
+.dark .bg-light,
+.dark .btn-light {
+  background-color: var(--bg-dark) !important; /*FONDO*/
+  color: var(--text-light) !important; /*TEXTO*/
+}
+
+.dark .jumbotron{
+  filter: brightness(0.5); 
+}
+
+/* CATEGORIAS */
+
+.dark .row {
+  background-color: var(--bg-dark) !important;
+  color: #8a8686;
+}
+
+
+/* PRODUCTS & PRODUCT INFO */
+
+#product-info-body.dark,
+#products-body.dark {
+  background: linear-gradient(to bottom, var(--bg-dark), var(--bg-dark)) !important;
+}
+
+#precio {
+  color: white;
+}
+
+#header-product {
+  filter: brightness(0.5); 
+}
+
+/* LOGIN */
+
+body.dark .loginn {
+  background: linear-gradient(#292929, #353131, #7a7a7a);
+}
+
+#imglogin {
+  text-align: center;
+}
+
+.dark input {
+  background-color: var(--bg-input);
+}
+
+/* PERFIL */
+
+.dark #profile-page {
+  background: linear-gradient(#333333, #444444, #555555);
+  border-color: #444444;
+}
+
+.dark input {
+  border-color: #444444;
+}
+
+.dark button {
+  color: var(--text-light) !important;
+}
+
+/* VENDER */
+
+.dark .needsclick {
+  background-color: var(--bg-dark) !important;
+}
+
+.dark .list-group-item {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-light);
+}
+
+.dark .form-select {
+  background-color: var(--bg-dark) !important;
+  color: var(--text-light);
+}
