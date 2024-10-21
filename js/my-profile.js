@@ -25,40 +25,35 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('apellido').value = localStorage.getItem('apellido') || '';
     document.getElementById('segundo-apellido').value = localStorage.getItem('segundoApellido') || '';
     document.getElementById('telefono').value = localStorage.getItem('telefono') || '';
-      
-    // Recupera la foto de localStorage
-    const savedImage = localStorage.getItem('foto');
-    const img = document.getElementById('img');
-    const defaultFile = "../img/img_perfil.png";
-    img.src = savedImage ? savedImage : defaultFile;
-
-    const modoDiaNoche = localStorage.getItem('modoDiaNoche');
-    if (modoDiaNoche === "noche") {
-      document.getElementById('modo-dia-noche').checked = true;
-    }
-  }
-  document.getElementById('guardar-btn').addEventListener('click', () => {
-    const nombre = document.getElementById('nombre').value;
-    const apellido = document.getElementById('apellido').value;
-
-    if (!nombre || !apellido || !email) {
-      alert("Complete los campos obligatorios.");
-      return;
-    } else {
-      alert('Cambios guardados');
-    }
-
-    localStorage.setItem('nombre', nombre);
-    localStorage.setItem('segundoNombre', document.getElementById('segundo-nombre').value);
-    localStorage.setItem('apellido', apellido);
-    localStorage.setItem('segundoApellido', document.getElementById('segundo-apellido').value);
-    localStorage.setItem('telefono', document.getElementById('telefono').value);
-    localStorage.setItem('email', email);
-      
-  });
+   
+    document.getElementById('guardar-btn').addEventListener('click', () => {
+      const nombre = document.getElementById('nombre').value;
+      const apellido = document.getElementById('apellido').value;
+  
+      if (!nombre || !apellido || !email) {
+        alert("Complete los campos obligatorios.");
+        return;
+      } else {
+        alert('Cambios guardados');
+      }
+      localStorage.setItem('nombre', nombre);
+      localStorage.setItem('segundoNombre', document.getElementById('segundo-nombre').value);
+      localStorage.setItem('apellido', apellido);
+      localStorage.setItem('segundoApellido', document.getElementById('segundo-apellido').value);
+      localStorage.setItem('telefono', document.getElementById('telefono').value);
+      localStorage.setItem('email', email);
+        
+    });
+    
+  };
 
   // Desafiate
   const file = document.getElementById('foto');
+  // Recupera la foto de localStorage
+  const savedImage = localStorage.getItem('foto');
+  const img = document.getElementById('img');
+  const defaultFile = "../img/img_perfil.png";
+  img.src = savedImage ? savedImage : defaultFile;
 
   //cambiar imagen
 
