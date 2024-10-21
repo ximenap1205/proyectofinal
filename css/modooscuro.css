@@ -89,6 +89,10 @@ body.dark button {
   color: var(--text-light) !important; /*TEXTO*/
 }
 
+.dark .jumbotron{
+  filter: brightness(0.5); 
+}
+
 /* CATEGORIAS */
 
 .dark .row {
@@ -106,6 +110,10 @@ body.dark button {
 
 #precio {
   color: white;
+}
+
+#header-product {
+  filter: brightness(0.5); 
 }
 
 /* LOGIN */
