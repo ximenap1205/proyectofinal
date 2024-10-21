@@ -63,6 +63,7 @@ input[type="email"].error, input[type="password"].error {
 /* Contenedor de login */
 
 .loginn {
+    max-width: 30%;
     color: rgb(224, 224, 224);
     margin: auto;
     background: linear-gradient(#8D8781, #A99883, #F8D596);
