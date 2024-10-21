@@ -1,21 +1,9 @@
+/* Estilos generales */
 img{
     transition: width 0.3s ease;
     height: auto;
     margin: auto;
     display: block;
-}
-
-.loginn {
-    color: rgb(224, 224, 224);
-    margin: auto;
-    background: linear-gradient(#8D8781, #A99883, #F8D596);
-    border-radius: 30px;
-    transition: width 0.3s ease;
-    padding: 2rem;
-}
-
-.loginn h1{
-    color: rgb(231, 150, 0);
 }
 
 input{
@@ -24,33 +12,6 @@ input{
     border-radius: 2rem;
     background-color: rgb(224, 224, 224);
     transition: all 0.3s ease;
-}
-
-input[type="email"]:focus, input[type="password"]:focus {
-    border-color: rgb(231, 150, 0);
-    outline: none;
-}
-
-input[type="email"]:valid, input[type="password"]:valid {
-    border-color: green !important;
-}
-
-input[type="email"].error, input[type="password"].error {
-    border-color: red !important;
-}
-
-#boton {
-    text-align: center;
-    margin-top: 70px;
-    padding: 4px 50px;
-    color: white;
-    background-color: rgb(231, 150, 0);
-    border-width: 1px;
-    border-color: rgb(231, 150, 0);
-    border-style: solid;
-    border-radius: 4px;  
-    font-weight: 700; 
-    box-shadow: 0px 0px 4px 1px rgb(199, 129, 0);
 }
 
 .row {
@@ -84,7 +45,52 @@ a {
 a:hover{
     color: rgb(199, 129, 0);
 }
-  
+
+/* Estados de inputs */
+input[type="email"]:focus, input[type="password"]:focus {
+    border-color: rgb(231, 150, 0);
+    outline: none;
+}
+
+input[type="email"]:valid, input[type="password"]:valid {
+    border-color: green !important;
+}
+
+input[type="email"].error, input[type="password"].error {
+    border-color: red !important;
+}
+
+/* Contenedor de login */
+
+.loginn {
+    color: rgb(224, 224, 224);
+    margin: auto;
+    background: linear-gradient(#8D8781, #A99883, #F8D596);
+    border-radius: 30px;
+    transition: width 0.3s ease;
+    padding: 2rem;
+}
+
+.loginn h1{
+    color: rgb(231, 150, 0);
+}
+
+/* Botón entrar */
+#boton {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 0.5rem 2rem;
+    color: white;
+    background-color: rgb(231, 150, 0);
+    border-width: 1px;
+    border-color: rgb(231, 150, 0);
+    border-style: solid;
+    border-radius: 4px;  
+    font-weight: 700; 
+    box-shadow: 0px 0px 4px 1px rgb(199, 129, 0);
+}
+
+/* MEDIAS */
 @media (min-width: 1024px) {
     .loginn, img {
         width: 470px;
