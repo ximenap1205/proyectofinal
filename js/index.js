@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Visibilidad del nombre de usuario
+
     let userName = localStorage.getItem('email');
     let userContainer = document.getElementById("user");
 
@@ -28,39 +29,31 @@ document.addEventListener("DOMContentLoaded", function() {
             </ul>
         `;
         document.getElementById("user-container").textContent = userName;
-
-     
+      
         document.getElementById('register-link').style.display = 'none';
     } else {
         userContainer.innerHTML = '';
     }
 
-  
+    //Funcionalidad para el boton de cerrar sesion.
+
     const logoutBtn = document.getElementById('logout-btn');
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', function(event) {
+        logoutBtn.addEventListener('click', function (event) {
             event.preventDefault();
 
-           
-            localStorage.removeItem('email');
+            localStorage.removeItem('email'); 
             localStorage.removeItem('nombre');
             localStorage.removeItem('segundoNombre');
             localStorage.removeItem('apellido');
             localStorage.removeItem('segundoApellido');
             localStorage.removeItem('telefono');
-            localStorage.removeItem('foto');
+            localStorage.removeItem('foto')
 
-           
             document.getElementById("user").innerHTML = '';
-
-            // muestra otra vez el boton registrarse
-            const registerLink = document.getElementById('register-link');
-            if (registerLink) {
-                registerLink.style.display = 'block'; 
-            }
+          
             location.replace('index.html');
         });
     }
 });
 
-    

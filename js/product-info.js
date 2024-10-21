@@ -198,9 +198,8 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
 
         const messageInput = document.getElementById('msg');
-        const usernameInput = document.getElementById('username');
         const newComment = messageInput.value.trim();
-        const username = usernameInput.value.trim();
+        const username = `${localStorage.getItem('nombre')}_${localStorage.getItem('apellido')}`.toLowerCase();
 
         console.log("Comment submission attempt:", { newComment, username, selectedRating });
 
