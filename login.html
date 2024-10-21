@@ -16,31 +16,45 @@
 </head>
 
 <body>
-  <img src="./img/login.png" alt="" >
-
-  <div class="loginn">
-    <h1>Iniciar Sesión</h1>
-<form>
-  <label for="email">Email</label><br>
-  <input type="text" id="email" placeholder="Escriba aquí..." required><br>
-  <label for="contra">Contraseña</label><br>
-  <input type="password" id="contra" placeholder="Escriba aquí..." required> <br>
- <u><p>Olvidaste la contraseña?</p> </u> 
-  <strong><button id="boton">Entrar</button></strong> <br>
-  <input class="boton3" type="radio">
-  <label class="botonn">Recuérdame</label>
-</form>
-  </div>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <label for="Toggle" id="label_toggle"><i class="fa-regular fa-moon"></i></label>
-      <input type="checkbox" id="Toggle">
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+  <div class="container-fluid min-vh-80 d-flex flex-column justify-content-between">
+    <div class="row flex-grow-1">
+      <div class="col-lg-6 d-flex justify-content-center align-items-center">
+        <img id="imglogin" src="./img/login.png" alt="Logo e-mercado">
+      </div>
+      <div class="loginn col-lg-6 d-flex align-items-center justify-content-center">
+        <form id="loginForm" class="w-75 text-center d-flex flex-column">
+          <h1>Iniciar Sesión</h1>
+          <div id="alert"></div>
+          <br>
+          <label for="email">Email</label><br>
+          <input type="email" id="email" placeholder="Escriba aquí..." required class="form-control mb-3"><br>
+          <label for="contra">Contraseña</label><br>
+          <input type="password" id="contra" placeholder="Escriba aquí..." required class="form-control mb-3"><br>
+          <u><p>¿Olvidaste la contraseña?</p></u> 
+          <strong><button id="boton" class="btn btn-warning w-100 mt-3">Entrar</button></strong><br>
+          <div class="form-check mt-2 d-flex align-items-center justify-content-center">
+            <input class="form-check-input me-2" type="checkbox" value="" id="recuerdame">
+            <label class="form-check-label" for="recuerdame">Recuérdame</label>
+          </div>
+        </form>
+      </div>
     </div>
-  </footer>
+    <br>
+    <footer class="text-muted py-3">
+      <div class="container">
+        <div>
+          <label for="Toggle" id="label_toggle"><i class="fa-regular fa-moon float-start"></i></label>
+          <input type="checkbox" class="float-start" id="Toggle">
+        </div>
+        <p class="float-end"><a href="#">Volver arriba</a></p> 
+        <p class="float-start">
+          Este sitio forma parte de 
+          <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jóvenes a Programar</a>
+        </p>
+      </div>
+    </footer>
+  </div>
+
   <script src="js/login.js"></script>
   <script src="js/modooscuro.js"></script>
 </body>
