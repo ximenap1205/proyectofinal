@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <h5 class="price-product-info">${productInfo.currency}: ${productInfo.cost}</h5>
                             <small class="text-muted">Cantidad vendidos: ${productInfo.soldCount}</small>
                             <p class="card-text-product-info">${productInfo.description}</p>
-                            <button id="btnComprar" class="btn btn-success">Comprar</button> // boton de comprar
+                            <button id="btnComprar" class="btn btn-success">Comprar</button>
                         </div>
                     </div>
                 </div>
