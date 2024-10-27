@@ -29,7 +29,6 @@ nav a {
 }
 
 .jumbotron {
-  height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53C0FB;
@@ -220,7 +219,7 @@ a.custom-card:hover {
   .jumbotron {
     padding-top: 1rem;
     padding-bottom: 6rem;
-    height: 100px;
+    height: 15vh;
   }
   .card-product {
     display: flex;
@@ -439,7 +438,7 @@ a.custom-card:hover {
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
-    height: 100px;
+    height: 25vh;
   }
   .card-product {
     display: flex;
@@ -647,6 +646,7 @@ a.custom-card:hover {
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
+    height: 30vw;
   }
   .card-product {
     display: flex;
