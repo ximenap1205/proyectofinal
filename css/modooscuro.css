@@ -118,7 +118,7 @@ body.dark button {
   color: white;
 }
 
-#header-product .dark {
+body.dark #header-product {
   filter: brightness(0.5); 
 }
 
