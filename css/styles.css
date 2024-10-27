@@ -720,6 +720,7 @@ a.custom-card:hover {
     gap: 1rem;
     margin-top: 2rem;
     margin-right: 1rem;
+    align-items: center;
   }
   #precio{
     font-size: large;
@@ -732,6 +733,7 @@ a.custom-card:hover {
    background-color: #ecebd7;
    font-style: italic;
    border-color: #d1b3b3;
+   padding: 0.5%;
   }
   #filtrar, #limpiar {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

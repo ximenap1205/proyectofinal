@@ -209,7 +209,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const messageInput = document.getElementById('msg');
         const newComment = messageInput.value.trim();
-        const username = `${localStorage.getItem('nombre')}_${localStorage.getItem('apellido')}`.toLowerCase();
+        const email = localStorage.getItem('email');
+        const firstName = localStorage.getItem('nombre');
+        const lastName = localStorage.getItem('apellido');
+
+        let username;
+
+        // verifica si hay nombre y apellido
+        if (firstName && lastName) {
+            username = `${firstName}_${lastName}`.toLowerCase(); // usa nombre y apellido
+        } else if (email) {
+            username = email.toLowerCase(); // usa email si no hay nombre y apellido
+        } else {
+            username = null; // si no hay nada, username es null
+        }
 
         console.log("Comment submission attempt:", { newComment, username, selectedRating });
 

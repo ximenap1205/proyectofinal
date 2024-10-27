@@ -47,7 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     } else {
 
-        userContainer.remove();
+        if (userContainer) {
+            userContainer.remove();
+        }
         // Verifica si el enlace de "Registrarse" no existe y agregarlo
         if (!registerLink) {
             const newRegisterLink = document.createElement('li');
