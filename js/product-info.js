@@ -50,11 +50,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Recupera la lista de productos del local storage o crea un nuevo array si no existe
                 let productsInCart = JSON.parse(localStorage.getItem("productos")) || [];
 
-                // Agrega el nuevo producto a la lista
-                productsInCart.push(productInfo);
+                // Verificar si el producto ya existe en el carrito
+                const productoExistente = productsInCart.find(prod => prod.id === productInfo.id);
+
+                if (productoExistente) {
+                    // Si ya existe, incrementa la cantidad
+                    productoExistente.quantity++;
+                } else {
+                    // Si no existe, agregarlo con cantidad 1
+                    productsInCart.push({ ...productInfo, quantity: 1 });
+                }
 
                 // Guarda la lista actualizada de productos en localStorage
                 localStorage.setItem("productos", JSON.stringify(productsInCart));
+
+                console.log(JSON.parse(localStorage.getItem("productos")));
+                console.log("Productos en carrito:", productsInCart);
 
                 // Redirigir a cart.html
                 window.location.href = "cart.html";

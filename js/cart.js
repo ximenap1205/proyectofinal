@@ -3,7 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
     let products = JSON.parse(localStorage.getItem("productos")) || [];
     const productCardsContainer = document.getElementById('cart-items-container');
 
-    products.forEach(product => {
+    if (products.length === 0) {
+        productCardsContainer.innerHTML = "<p>No hay productos en el carrito.</p>";
+        return;
+    }
+
+    for (let i = 0; i < products.length; i++) {
+
+        let product = products[i];
         const productCard = document.createElement('div');
         productCard.className = "row mb-4 d-flex justify-content-between align-items-center";
 
@@ -19,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                     <i class="fas fa-minus"></i>
                 </button>
-                <input min="0" name="quantity" value="${product.quantity}" type="number" class="form-control form-control-sm" />
+                <input min="1" name="quantity" value="${product.quantity}" type="number" class="form-control form-control-sm" />
                 <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                     <i class="fas fa-plus"></i>
                 </button>
@@ -33,6 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
 
         productCardsContainer.appendChild(productCard);
-    });
+    };
 
 });
