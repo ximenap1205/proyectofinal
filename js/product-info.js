@@ -47,8 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Productos info:", productInfo);
 
             document.getElementById("btnComprar").addEventListener("click", () => {
-                // Guarda la información del producto en localStorage
-                localStorage.setItem("producto", JSON.stringify(productInfo));
+                // Recupera la lista de productos del local storage o crea un nuevo array si no existe
+                let productsInCart = JSON.parse(localStorage.getItem("productos")) || [];
+
+                // Agrega el nuevo producto a la lista
+                productsInCart.push(productInfo);
+
+                // Guarda la lista actualizada de productos en localStorage
+                localStorage.setItem("productos", JSON.stringify(productsInCart));
 
                 // Redirigir a cart.html
                 window.location.href = "cart.html";
