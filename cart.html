@@ -48,20 +48,32 @@
           <h1 class="fw-bold mb-0">Carrito</h1>
           <h6 class="mb-0 text-muted" id="cart-items"></h6>
         </div>
+    
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-12">
             <div class="card">
               <div class="card-body p-0">
                 <div class="row g-0">
-                  <div class="col-lg-8 p-5" id="cart-items-container"></div>
-                  <div class="col-lg-4 bg-body-tertiary" id="cart-summary"></div>
+                  <!-- Columna izquierda: Productos -->
+                  <div class="col-lg-8 p-5">
+                    <table class="table align-middle">
+
+                      <tbody id="cart-items-container">
+                        <!-- Las filas de productos se generarán dinámicamente -->
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- Columna derecha: Resumen del carrito -->
+                  <div class="col-lg-4 bg-body-tertiary p-5" id="cart-summary">
+                    <!-- Resumen del carrito generado dinámicamente -->
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </div>    
   </main>
   <footer class="text-muted">
     <div class="container">

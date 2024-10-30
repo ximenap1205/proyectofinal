@@ -864,3 +864,9 @@ a.custom-card:hover {
   min-width: 100%; 
   box-sizing: border-box;
 }
+
+.input-quantity {
+  max-width: 4rem; /* Asegura que quepan dos números */
+  text-align: center; /* Centra el número dentro del input */
+  appearance: textfield;
+}
