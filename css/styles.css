@@ -870,3 +870,36 @@ a.custom-card:hover {
   text-align: center; /* Centra el número dentro del input */
   appearance: textfield;
 }
+
+#btn-pagar {
+  color: white;
+  background-color: #F89A2E;
+}
+
+#btn-pagar:hover {
+  color: white;
+  background-color: #fa8a0a;
+  font-weight: bold;
+}
+
+.btn-link {
+  color: #F89A2E;
+}
+
+.btn-link:hover {
+  color:#F9B14E;
+}
+
+#btn-seguir-comprar:hover {
+  background-color: white;
+  font-weight: bold;
+  color: #F89A2E;
+}
+
+#h1-carrito {
+  color: #F89A2E;
+}
+
+.buttons-comprar {
+  font-size: 1rem;
+}

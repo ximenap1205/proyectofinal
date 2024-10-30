@@ -9,7 +9,7 @@ let products = JSON.parse(localStorage.getItem('productos')) || [];
 
             products.forEach((product, index) => {
                 const productCard = document.createElement('div');
-                productCard.className = "card mb-4 p-3";
+                productCard.className = "card card-cart mb-4 p-3";
 
                 productCard.innerHTML = `
                     <div class="row g-2 align-items-center flex-lg-row flex-column">
@@ -99,9 +99,10 @@ let products = JSON.parse(localStorage.getItem('productos')) || [];
                     <p>Subtotal USD:</p>
                     <p><strong>${subtotalUSD}</strong></p>
                 </div>
-                <div class="d-flex justify-content-between g-2">
-                    <button class="col-6 btn btn-secondary" onclick="location.href='categories.html'">Seguir comprando</button>
-                    <button class="col-6 btn btn-primary">Ir a Pagar</button>
+                <hr>
+                <div class="buttons-comprar d-flex justify-content-between g-2">
+                    <button class="col-6 btn btn-outline-warning me-2" id="btn-seguir-comprar" onclick="location.href='categories.html'">Seguir comprando</button>
+                    <button class="col-6 btn btn-warning" id="btn-pagar">Ir a pagar</button>
                 </div>
             `;
         }
