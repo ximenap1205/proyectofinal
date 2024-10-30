@@ -35,12 +35,20 @@ document.addEventListener("DOMContentLoaded", function () {
         userContainer.innerHTML = `
             <a id="user-container" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+                <li><a class="dropdown-item" href="cart.html">Mi carrito</a>
+                 <span id="card-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                   0
+                 <span class="visually-hidden">unread messages</span>
+                  </span>
+                </li>
                 <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a id="logout-btn" class="dropdown-item" href="#">Cerrar Sesión</a></li>
             </ul>
         `;
+         //badge* con la cantidad total de productos añadidos.
+        
+
         document.getElementById("user-container").textContent = userName;
     
         if (registerLink) registerLink.remove();
