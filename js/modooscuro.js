@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <a id="user-container" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="cart.html">Mi carrito</a>
-                 <span id="card-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                 <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                    0
                  <span class="visually-hidden">unread messages</span>
                   </span>
@@ -46,13 +46,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a id="logout-btn" class="dropdown-item" href="#">Cerrar Sesión</a></li>
             </ul>
         `;
-         //badge* con la cantidad total de productos añadidos.
         
 
         document.getElementById("user-container").textContent = userName;
     
         if (registerLink) registerLink.remove();
 
+        //badge* con la cantidad total de productos añadidos.
+        
+        let cartProducts = JSON.parse(localStorage.getItem("productos")) || [];
+        let cartCountElement = document.getElementById("cart-count");
+        let cartCount= cartProducts.reduce((total, product)=> total + product.quantity, 0);
+        
+        cartCountElement.innerText = cartCount;
+        if (cartCount === 0) {
+            cartCountElement.style.display = "none";
+        } else { 
+            cartCountElement.style.display = "inline-block";
+        }
     } else {
 
         if (userContainer) {

@@ -65,9 +65,23 @@ let products = JSON.parse(localStorage.getItem('productos')) || [];
             //document.getElementById(`subtotal-${index}`).textContent = newSubtotal; //
 
             localStorage.setItem("productos", JSON.stringify(products));
+            updateCartCount();
             updateCartSummary(products);
         }
+        //badge* con la cantidad total de productos añadidos.
+        function updateCartCount(){
 
+         let cartProducts = JSON.parse(localStorage.getItem("productos")) || [];
+         let cartCountElement = document.getElementById("cart-count");
+         let cartCount= cartProducts.reduce((total, product)=> total + product.quantity, 0);
+         
+         cartCountElement.innerText = cartCount;
+         if (cartCount === 0) {
+            cartCountElement.style.display = "none";
+         } else { 
+            cartCountElement.style.display = "inline-block";
+         }
+        }
         function removeProduct(index) {
             let products = JSON.parse(localStorage.getItem("productos")) || [];
             products.splice(index, 1);
