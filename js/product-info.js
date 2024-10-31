@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Productos info:", productInfo);
 
             document.getElementById("btnComprar").addEventListener("click", () => {
+
                 // Recupera la lista de productos del local storage o crea un nuevo array si no existe
                 let productsInCart = JSON.parse(localStorage.getItem("productos")) || [];
 
