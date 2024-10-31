@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <div class="col-lg-2 text-lg-end">
                     <h6 class="mb-0">Subtotal: ${product.currency}
-                        <span id="subtotal-${index}"></span>
+                        <span id="subtotal-${index}">${(product.cost * product.quantity).toFixed(2)}</span>
                     </h6>
                 </div>
                 <div class="col-lg-2 text-end btn-borrar">
@@ -67,12 +67,16 @@ function updateQuantity(index, change) {
     const quantityInput = document.getElementById(`input-quantity-${index}`);
     quantityInput.value = products[index].quantity;
 
+    const newSubtotal = (products[index].cost * products[index].quantity).toFixed(2);
+    document.getElementById(`subtotal-${index}`).textContent = newSubtotal;
+
     // ANTO --- const newSubtotal = 
     //document.getElementById(`subtotal-${index}`).textContent = newSubtotal; //
-
+   
     localStorage.setItem("productos", JSON.stringify(products));
     updateCartSummary(products);
     updateCartCount();
+    actualizarTotales();
 }
 
 //eliminar producto del carrito
@@ -98,17 +102,25 @@ function updateCartSummary(products) {
     let subtotalUSD = 0;
 
     //ANTO SUBTOTAL UYU SUBTOTAL USD//
+    products.forEach(product => {
+        if (product.currency === 'UYU') {
+            subtotalUYU += product.cost * product.quantity;
+        } else if (product.currency === 'USD') {
+            subtotalUSD += product.cost * product.quantity;
+        }
+    })
+
 
     summaryContainer.innerHTML = `
         <h5>Resumen del pedido</h5>
         <hr>
         <div class="d-flex justify-content-between">
             <p>Subtotal UYU:</p>
-            <p><strong>${subtotalUYU}</strong></p>
+            <p><strong>${subtotalUYU.toFixed(2)}</strong></p>
         </div>
         <div class="d-flex justify-content-between">
             <p>Subtotal USD:</p>
-            <p><strong>${subtotalUSD}</strong></p>
+            <p><strong>${subtotalUSD.toFixed(2)}</strong></p>
         </div>
         <hr>
         <div class="buttons-comprar d-flex justify-content-between g-2">
@@ -137,5 +149,26 @@ function updateCartCount(){
     } else { 
        cartCountElement.style.display = "inline-block";
     }
+
     
+}
+function actualizarTotales() {
+    const productos = JSON.parse(localStorage.getItem("productos")) || [];
+    let unidades = 0;
+    let precio = 0;
+
+    if (productos.length > 0) {
+        productos.forEach(producto => {
+            unidades += producto.quantity;
+            precio += producto.cost * producto.quantity;
+        });
+    }
+
+    const unidadesElement = document.getElementById("unidades");
+    const precioElement = document.getElementById("precio");
+
+    if (unidadesElement && precioElement) {
+        unidadesElement.innerText = unidades;
+        precioElement.innerText = precio.toFixed(2);///redondeará el número en función de la cantidad de decimales que especifiques algo nuevo que aprendi jaja
+    }
 }
