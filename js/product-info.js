@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Productos info:", productInfo);
 
             document.getElementById("btnComprar").addEventListener("click", () => {
-                // Guarda la información del producto en localStorage
+                // Esta parte guarda la info del producto en local storage
                 localStorage.setItem("producto", JSON.stringify(productInfo));
 
                 // Redirigir a cart.html
