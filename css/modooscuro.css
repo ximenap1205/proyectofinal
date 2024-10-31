@@ -10,7 +10,9 @@
   color: #ec7028;
   cursor: pointer;
 }
-
+#cart-count{
+  background-color: #F89A2E !important;
+}
 /* VARIABLES GENERALES */
 
 :root {
