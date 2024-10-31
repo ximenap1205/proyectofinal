@@ -58,58 +58,62 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCartSummary(products);
 });
 
-        function updateQuantity(index, change) {
-            let products = JSON.parse(localStorage.getItem("productos")) || [];
-            products[index].quantity = Math.max(1, products[index].quantity + change);
+// actualizar carrito
 
-            const quantityInput = document.getElementById(`input-quantity-${index}`);
-            quantityInput.value = products[index].quantity;
+function updateQuantity(index, change) {
+    let products = JSON.parse(localStorage.getItem("productos")) || [];
+    products[index].quantity = Math.max(1, products[index].quantity + change);
 
-            // ANTO --- const newSubtotal = 
-            //document.getElementById(`subtotal-${index}`).textContent = newSubtotal; //
+    const quantityInput = document.getElementById(`input-quantity-${index}`);
+    quantityInput.value = products[index].quantity;
 
-            localStorage.setItem("productos", JSON.stringify(products));
-            updateCartSummary(products);
-        }
+    // ANTO --- const newSubtotal = 
+    //document.getElementById(`subtotal-${index}`).textContent = newSubtotal; //
 
-        function removeProduct(index) {
-            let products = JSON.parse(localStorage.getItem("productos")) || [];
-            products.splice(index, 1);
-            localStorage.setItem("productos", JSON.stringify(products));
-            document.getElementById('cart-items-container').children[index].remove();
+    localStorage.setItem("productos", JSON.stringify(products));
+    updateCartSummary(products);
+}
 
-            if (products.length === 0) {
-                document.getElementById('cart-items-container').innerHTML = "<p>No hay productos en el carrito.</p>";
-            }
+//eliminar producto del carrito
 
-            updateCartSummary(products);
-        }
+function removeProduct(index) {
+    let products = JSON.parse(localStorage.getItem("productos")) || [];
+    products.splice(index, 1);
+    localStorage.setItem("productos", JSON.stringify(products));
+    document.getElementById('cart-items-container').children[index].remove();
 
-        function updateCartSummary(products) {
-            const summaryContainer = document.getElementById('cart-summary');
-            let subtotalUYU = 0;
-            let subtotalUSD = 0;
+    if (products.length === 0) {
+        document.getElementById('cart-items-container').innerHTML = "<p>No hay productos en el carrito.</p>";
+    }
 
-            //ANTO SUBTOTAL UYU SUBTOTAL USD//
+    updateCartSummary(products);
+}
 
-            summaryContainer.innerHTML = `
-                <h5>Resumen del pedido</h5>
-                <hr>
-                <div class="d-flex justify-content-between">
-                    <p>Subtotal UYU:</p>
-                    <p><strong>${subtotalUYU}</strong></p>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <p>Subtotal USD:</p>
-                    <p><strong>${subtotalUSD}</strong></p>
-                </div>
-                <hr>
-                <div class="buttons-comprar d-flex justify-content-between g-2">
-                    <button class="col-6 btn btn-outline-warning me-2" id="btn-seguir-comprar" onclick="location.href='categories.html'">Seguir comprando</button>
-                    <button class="col-6 btn btn-warning" id="btn-pagar">Ir a pagar</button>
-                </div>
-            `;
-        }
+function updateCartSummary(products) {
+    const summaryContainer = document.getElementById('cart-summary');
+    let subtotalUYU = 0;
+    let subtotalUSD = 0;
+
+    //ANTO SUBTOTAL UYU SUBTOTAL USD//
+
+    summaryContainer.innerHTML = `
+        <h5>Resumen del pedido</h5>
+        <hr>
+        <div class="d-flex justify-content-between">
+            <p>Subtotal UYU:</p>
+            <p><strong>${subtotalUYU}</strong></p>
+        </div>
+        <div class="d-flex justify-content-between">
+            <p>Subtotal USD:</p>
+            <p><strong>${subtotalUSD}</strong></p>
+        </div>
+        <hr>
+        <div class="buttons-comprar d-flex justify-content-between g-2">
+            <button class="col-6 btn btn-outline-warning me-2" id="btn-seguir-comprar" onclick="location.href='categories.html'">Seguir comprando</button>
+            <button class="col-6 btn btn-warning" id="btn-pagar">Ir a pagar</button>
+        </div>
+    `;
+}
 
 function goToProduct(id) {
     localStorage.setItem("productID", id);
