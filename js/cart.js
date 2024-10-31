@@ -90,6 +90,8 @@ function removeProduct(index) {
     updateCartSummary(products);
 }
 
+// actualizae carrito resumen
+
 function updateCartSummary(products) {
     const summaryContainer = document.getElementById('cart-summary');
     let subtotalUYU = 0;
@@ -121,8 +123,9 @@ function goToProduct(id) {
     window.location = "product-info.html";
     console.log(id);
 }
- //badge* con la cantidad total de productos añadidos.
- function updateCartCount(){
+
+//badge* con la cantidad total de productos añadidos.
+function updateCartCount(){
 
     let cartProducts = JSON.parse(localStorage.getItem("productos")) || [];
     let cartCountElement = document.getElementById("cart-count");
