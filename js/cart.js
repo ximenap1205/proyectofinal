@@ -1,58 +1,62 @@
 let products = JSON.parse(localStorage.getItem('productos')) || [];
-        const productCardsContainer = document.getElementById('cart-items-container');
+const productCardsContainer = document.getElementById('cart-items-container');
 
-        document.addEventListener("DOMContentLoaded", function () {
-            if (products.length === 0) {
-                productCardsContainer.innerHTML = "<p>No hay productos en el carrito.</p>";
-                return;
-            }
+document.addEventListener("DOMContentLoaded", function () {
 
-            products.forEach((product, index) => {
-                const productCard = document.createElement('div');
-                productCard.className = "card card-cart mb-4 p-3";
+    // si no hay productos en el carrito
+    if (products.length === 0) {
+        productCardsContainer.innerHTML = "<p>No hay productos en el carrito.</p>";
+        return;
+    }
 
-                productCard.innerHTML = `
-                    <div class="row g-2 align-items-center flex-lg-row flex-column">
-                        <div class="col-lg-2 col-md-3 mb-3 mb-lg-0">
-                            <img src="${product.images[0]}" class="img-fluid rounded-3" alt="${product.name}">
-                        </div>
-                        <div class="col-lg-2 col-md-4">
-                            <h6 class="text-muted">${product.category}</h6>
-                            <h6 class="mb-0">${product.name}</h6>
-                        </div>
-                        <div class="col-lg-2 text-lg-end">
-                            <h6 class="mb-0">${product.currency}: ${product.cost}</h6>
-                        </div>
-                        <div class="col-lg-2 align-items-center" style="flex: 1;">
-                            <div class="d-flex align-items-center">
-                                <button class="btn btn-link px-1" onclick="updateQuantity(${index}, -1)">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-                                <input id="input-quantity-${index}" min="1" name="quantity"
-                                    value="${product.quantity}" type="number"
-                                    class="form-control text-center" readonly />
-                                <button class="btn btn-link px-1" onclick="updateQuantity(${index}, 1)">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 text-lg-end">
-                            <h6 class="mb-0">Subtotal: ${product.currency}
-                                <span id="subtotal-${index}"></span>
-                            </h6>
-                        </div>
-                        <div class="col-lg-2 text-end">
-                            <a href="#!" class="text-muted d-inline-block" onclick="removeProduct(${index})">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                `;
-                productCardsContainer.appendChild(productCard);
-            });
+    //card de producto
 
-            updateCartSummary(products);
-        });
+    products.forEach((product, index) => {
+        const productCard = document.createElement('div');
+        productCard.className = "card card-cart mb-4 p-3";
+
+        productCard.innerHTML = `
+            <div class="row g-2 align-items-center flex-lg-row flex-column">
+            <div class="col-lg-2 col-md-3 mb-3 mb-lg-0">
+                <img src="${product.images[0]}" class="img-fluid rounded-3" id="img-cart-product" onclick="goToProduct(${product.id})" alt="${product.name}">
+            </div>
+            <div class="col-lg-2 col-md-4">
+               <h6 class="text-muted">${product.category}</h6>
+                <h6 class="mb-0" id="product-name-cart" onclick="goToProduct(${product.id})">${product.name}</h6>
+            </div>
+            <div class="col-lg-2 text-lg-end">
+                <h6 class="mb-0">${product.currency}: ${product.cost}</h6>
+            </div>
+            <div class="col-lg-2 align-items-center" style="flex: 1;">
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-link px-1" onclick="updateQuantity(${index}, -1)">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <input id="input-quantity-${index}" min="1" name="quantity"
+                        value="${product.quantity}" type="number"
+                        class="form-control text-center" readonly />
+                    <button class="btn btn-link px-1" onclick="updateQuantity(${index}, 1)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-2 text-lg-end">
+                <h6 class="mb-0">Subtotal: ${product.currency}
+                    <span id="subtotal-${index}"></span>
+                </h6>
+            </div>
+                <div class="col-lg-2 text-end">
+                    <a href="#!" class="text-muted d-inline-block" onclick="removeProduct(${index})">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </div>
+            </div>
+        `;
+        productCardsContainer.appendChild(productCard);
+    });
+
+    updateCartSummary(products);
+});
 
         function updateQuantity(index, change) {
             let products = JSON.parse(localStorage.getItem("productos")) || [];
@@ -106,3 +110,9 @@ let products = JSON.parse(localStorage.getItem('productos')) || [];
                 </div>
             `;
         }
+
+function goToProduct(id) {
+    localStorage.setItem("productID", id);
+    window.location = "product-info.html";
+    console.log(id);
+}

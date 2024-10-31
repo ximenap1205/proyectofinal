@@ -903,3 +903,8 @@ a.custom-card:hover {
 .buttons-comprar {
   font-size: 1rem;
 }
+
+#img-cart-product:hover,
+#product-name-cart:hover {
+  cursor: pointer;
+}
