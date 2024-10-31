@@ -98,6 +98,7 @@ function removeProduct(index) {
     }
 
     actualizarTotales();
+    updateCartSummary(products);
 }
 
 // actualizar carrito resumen
