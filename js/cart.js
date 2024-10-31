@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </button>
                     <input id="input-quantity-${index}" min="1" name="quantity"
                         value="${product.quantity}" type="number"
-                        class="form-control text-center" readonly />
+                        class="form-control text-center input-quantity" readonly />
                     <button class="btn btn-link px-1" onclick="updateQuantity(${index}, 1)">
                         <i class="fas fa-plus"></i>
                     </button>
