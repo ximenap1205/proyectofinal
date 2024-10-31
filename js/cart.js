@@ -1,4 +1,4 @@
-let products = JSON.parse(localStorage.getItem('productos')) || [];
+const products = JSON.parse(localStorage.getItem('productos')) || [];
 const productCardsContainer = document.getElementById('cart-items-container');
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -61,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // actualizar carrito
 
 function updateQuantity(index, change) {
-    let products = JSON.parse(localStorage.getItem("productos")) || [];
     products[index].quantity = Math.max(1, products[index].quantity + change);
 
     const quantityInput = document.getElementById(`input-quantity-${index}`);
@@ -69,39 +68,45 @@ function updateQuantity(index, change) {
 
     const newSubtotal = (products[index].cost * products[index].quantity).toFixed(2);
     document.getElementById(`subtotal-${index}`).textContent = newSubtotal;
-
-    // ANTO --- const newSubtotal = 
-    //document.getElementById(`subtotal-${index}`).textContent = newSubtotal; //
    
     localStorage.setItem("productos", JSON.stringify(products));
-    updateCartSummary(products);
-    updateCartCount();
+
     actualizarTotales();
+    updateCartSummary(products);
 }
 
 //eliminar producto del carrito
 
 function removeProduct(index) {
-    let products = JSON.parse(localStorage.getItem("productos")) || [];
+    // validación índice es válido
+    if (index < 0 || index >= products.length) {
+        console.error("Índice no válido. No se puede eliminar el producto.");
+        return;
+    }
+
     products.splice(index, 1);
     localStorage.setItem("productos", JSON.stringify(products));
-    document.getElementById('cart-items-container').children[index].remove();
 
+    const productCard = document.getElementById('cart-items-container').children[index];
+    if (productCard) {
+        productCard.remove();
+    }
+
+    // si el carrito esta vacio
     if (products.length === 0) {
         document.getElementById('cart-items-container').innerHTML = "<p>No hay productos en el carrito.</p>";
     }
 
-    updateCartSummary(products);
+    actualizarTotales();
 }
 
-// actualizae carrito resumen
+// actualizar carrito resumen
 
 function updateCartSummary(products) {
     const summaryContainer = document.getElementById('cart-summary');
     let subtotalUYU = 0;
     let subtotalUSD = 0;
 
-    //ANTO SUBTOTAL UYU SUBTOTAL USD//
     products.forEach(product => {
         if (product.currency === 'UYU') {
             subtotalUYU += product.cost * product.quantity;
@@ -109,7 +114,6 @@ function updateCartSummary(products) {
             subtotalUSD += product.cost * product.quantity;
         }
     })
-
 
     summaryContainer.innerHTML = `
         <h5>Resumen del pedido</h5>
@@ -130,35 +134,13 @@ function updateCartSummary(products) {
     `;
 }
 
-function goToProduct(id) {
-    localStorage.setItem("productID", id);
-    window.location = "product-info.html";
-    console.log(id);
-}
-
-//badge* con la cantidad total de productos añadidos.
-function updateCartCount(){
-
-    let cartProducts = JSON.parse(localStorage.getItem("productos")) || [];
-    let cartCountElement = document.getElementById("cart-count");
-    let cartCount= cartProducts.reduce((total, product)=> total + product.quantity, 0);
-    
-    cartCountElement.innerText = cartCount;
-    if (cartCount === 0) {
-       cartCountElement.style.display = "none";
-    } else { 
-       cartCountElement.style.display = "inline-block";
-    }
-
-    
-}
 function actualizarTotales() {
-    const productos = JSON.parse(localStorage.getItem("productos")) || [];
+
     let unidades = 0;
     let precio = 0;
 
-    if (productos.length > 0) {
-        productos.forEach(producto => {
+    if (products.length > 0) {
+        products.forEach(producto => {
             unidades += producto.quantity;
             precio += producto.cost * producto.quantity;
         });
@@ -166,9 +148,26 @@ function actualizarTotales() {
 
     const unidadesElement = document.getElementById("unidades");
     const precioElement = document.getElementById("precio");
+    const cartCountElement = document.getElementById("cart-count");
 
     if (unidadesElement && precioElement) {
         unidadesElement.innerText = unidades;
         precioElement.innerText = precio.toFixed(2);///redondeará el número en función de la cantidad de decimales que especifiques algo nuevo que aprendi jaja
     }
+
+    // Actualiza el badge del carrito
+    if (cartCountElement) {
+        cartCountElement.innerText = unidades;
+        if (unidades === 0) {
+            cartCountElement.style.display = "none";
+         } else { 
+            cartCountElement.style.display = "inline-block";
+         }
+    }
+}
+
+function goToProduct(id) {
+    localStorage.setItem("productID", id);
+    window.location = "product-info.html";
+    console.log(id);
 }
