@@ -47,8 +47,26 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Productos info:", productInfo);
 
             document.getElementById("btnComprar").addEventListener("click", () => {
-                // Esta parte guarda la info del producto en local storage
-                localStorage.setItem("producto", JSON.stringify(productInfo));
+
+                // Recupera la lista de productos del local storage o crea un nuevo array si no existe
+                let productsInCart = JSON.parse(localStorage.getItem("productos")) || [];
+
+                // Verificar si el producto ya existe en el carrito
+                const productoExistente = productsInCart.find(prod => prod.id === productInfo.id);
+
+                if (productoExistente) {
+                    // Si ya existe, incrementa la cantidad
+                    productoExistente.quantity++;
+                } else {
+                    // Si no existe, agregarlo con cantidad 1
+                    productsInCart.push({ ...productInfo, quantity: 1 });
+                }
+
+                // Guarda la lista actualizada de productos en localStorage
+                localStorage.setItem("productos", JSON.stringify(productsInCart));
+
+                console.log(JSON.parse(localStorage.getItem("productos")));
+                console.log("Productos en carrito:", productsInCart);
 
                 // Redirigir a cart.html
                 window.location.href = "cart.html";
@@ -209,7 +227,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const messageInput = document.getElementById('msg');
         const newComment = messageInput.value.trim();
-        const username = `${localStorage.getItem('nombre')}_${localStorage.getItem('apellido')}`.toLowerCase();
+        const email = localStorage.getItem('email');
+        const firstName = localStorage.getItem('nombre');
+        const lastName = localStorage.getItem('apellido');
+
+        let username;
+
+        // verifica si hay nombre y apellido
+        if (firstName && lastName) {
+            username = `${firstName}_${lastName}`.toLowerCase(); // usa nombre y apellido
+        } else if (email) {
+            username = email.toLowerCase(); // usa email si no hay nombre y apellido
+        } else {
+            username = null; // si no hay nada, username es null
+        }
 
         console.log("Comment submission attempt:", { newComment, username, selectedRating });
 
@@ -285,49 +316,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // envío del formulario, se ejecuta la funcion
     document.querySelector('.comment-form').addEventListener('submit', commentSubmit);
-
-// Visibilidad del nombre de usuario
-
-let userName = localStorage.getItem('email');
-let userContainer = document.getElementById("user");
-
-if (userName) {
-    userContainer.innerHTML = `
-        <a id="user-container" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
-            <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a id="logout-btn" class="dropdown-item" href="#">Cerrar Sesión</a></li>
-        </ul>
-    `;
-    document.getElementById("user-container").textContent = userName;
-  
-    document.getElementById('register-link').style.display = 'none';
-} else {
-    userContainer.innerHTML = '';
-}
-
-//Funcionalidad para el boton de cerrar sesion.
-
-const logoutBtn = document.getElementById('logout-btn');
-if (logoutBtn) {
-    logoutBtn.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        localStorage.removeItem('email'); 
-        localStorage.removeItem('nombre');
-        localStorage.removeItem('segundoNombre');
-        localStorage.removeItem('apellido');
-        localStorage.removeItem('segundoApellido');
-        localStorage.removeItem('telefono');
-        localStorage.removeItem('foto')
-
-        document.getElementById("user").innerHTML = '';
-      
-        location.replace('login.html');
-    });
-}
 
 });
 

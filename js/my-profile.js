@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
   };
 
-  // Desafiate
+  // Desafiate foto perfil
   const file = document.getElementById('foto');
   // Recupera la foto de localStorage
   const savedImage = localStorage.getItem('foto');

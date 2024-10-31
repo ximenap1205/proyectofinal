@@ -21,7 +21,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
+        <ul class="navbar-nav w-100 justify-content-between align-items-center">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Inicio</a>
           </li>
@@ -31,8 +31,8 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <a id="register-link" class="nav-link" href="login.html">Registrarse</a>
+          <li class="nav-item" id="register-link">
+            <a class="nav-link" href="login.html">Registrarse</a>
             </li>
           <li class="nav-item dropdown" id="user">
               
@@ -42,11 +42,33 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
+    <div class="container py-5 h-100" id="body-cart">
+      <section class="h-100 h-custom">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+          <h1 class="fw-bold mb-0" id="h1-carrito">Carrito</h1>
+          <h6 class="mb-0 text-muted" id="cart-items"></h6>
+        </div>
+    
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="row g-0">
+                  <!-- Columna izquierda: Productos -->
+                  <div class="col-lg-8 p-5" id="cart-items-container">
+                    
+                  </div>
+                  <!-- Columna derecha: Resumen del carrito -->
+                  <div class="col-lg-4 bg-body-tertiary p-5" id="cart-summary">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>    
   </main>
   <footer class="text-muted">
     <div class="container">

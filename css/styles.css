@@ -29,7 +29,6 @@ nav a {
 }
 
 .jumbotron {
-  height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
   background-color: #53C0FB;
@@ -220,7 +219,7 @@ a.custom-card:hover {
   .jumbotron {
     padding-top: 1rem;
     padding-bottom: 6rem;
-    height: 100px;
+    height: 15vh;
   }
   .card-product {
     display: flex;
@@ -423,6 +422,13 @@ a.custom-card:hover {
     font-weight: bold;
     margin-top: 1rem;
   }
+  .card-cart {
+    text-align: center;
+  }
+  .quantity-items {
+    display: flex !important;
+    justify-content: center;
+  }
 }
 
 #user-container{
@@ -439,7 +445,7 @@ a.custom-card:hover {
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
-    height: 100px;
+    height: 25vh;
   }
   .card-product {
     display: flex;
@@ -641,12 +647,20 @@ a.custom-card:hover {
     font-weight: bold;
     margin-top: 1rem;
   }
+  .card-cart {
+    text-align: center;
+  }
+  .quantity-items {
+    display: flex !important;
+    justify-content: center;
+  }
 }
 
 @media (min-width: 1024px) {
   .jumbotron {
     padding-top: 6rem;
     padding-bottom: 6rem;
+    height: 30vw;
   }
   .card-product {
     display: flex;
@@ -720,6 +734,7 @@ a.custom-card:hover {
     gap: 1rem;
     margin-top: 2rem;
     margin-right: 1rem;
+    align-items: center;
   }
   #precio{
     font-size: large;
@@ -732,6 +747,7 @@ a.custom-card:hover {
    background-color: #ecebd7;
    font-style: italic;
    border-color: #d1b3b3;
+   padding: 0.5%;
   }
   #filtrar, #limpiar {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -861,4 +877,52 @@ a.custom-card:hover {
   width: auto;
   min-width: 100%; 
   box-sizing: border-box;
+}
+
+.input-quantity {
+  width: 4rem; /* Asegura que quepan dos números */
+  text-align: center; /* Centra el número dentro del input */
+  appearance: textfield;
+}
+
+#btn-pagar {
+  color: white;
+  background-color: #F89A2E;
+}
+
+#btn-pagar:hover {
+  color: white;
+  background-color: #fa8a0a;
+  font-weight: bold;
+}
+
+.btn-link {
+  color: #F89A2E;
+}
+
+.btn-link:hover {
+  color:#F9B14E;
+}
+
+#btn-seguir-comprar:hover {
+  background-color: white;
+  font-weight: bold;
+  color: #F89A2E;
+}
+
+#h1-carrito {
+  color: #F89A2E;
+}
+
+.buttons-comprar {
+  font-size: 1rem;
+}
+
+#img-cart-product:hover,
+#product-name-cart:hover {
+  cursor: pointer;
+}
+
+#product-name-cart {
+  font-weight: bold;
 }
