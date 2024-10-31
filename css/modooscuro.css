@@ -168,3 +168,25 @@ body.dark .form-select {
   background-color: var(--bg-dark) !important;
   color: var(--text-light);
 }
+
+/* CART */
+
+body.dark #cart-items-container:hover,
+body.dark .card-cart:hover ,
+body.dark #body-cart > .card:hover {
+  border: none;
+}
+
+body.dark .buttons-comprar:hover,
+body.dark #btn-seguir-comprar:hover {
+  background-color: var(--bg-dark) !important;
+  color: #ec7028;
+}
+
+body.dark .card-cart-body {
+  background-color: #444 !important;
+}
+
+body.dark .card-cart:hover .card-cart-body {
+  background-color: #252525 !important;
+}

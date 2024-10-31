@@ -422,6 +422,13 @@ a.custom-card:hover {
     font-weight: bold;
     margin-top: 1rem;
   }
+  .card-cart {
+    text-align: center;
+  }
+  .quantity-items {
+    display: flex !important;
+    justify-content: center;
+  }
 }
 
 #user-container{
@@ -639,6 +646,13 @@ a.custom-card:hover {
     font-size: 1.5rem;
     font-weight: bold;
     margin-top: 1rem;
+  }
+  .card-cart {
+    text-align: center;
+  }
+  .quantity-items {
+    display: flex !important;
+    justify-content: center;
   }
 }
 
@@ -907,4 +921,8 @@ a.custom-card:hover {
 #img-cart-product:hover,
 #product-name-cart:hover {
   cursor: pointer;
+}
+
+#product-name-cart {
+  font-weight: bold;
 }

@@ -16,36 +16,36 @@ document.addEventListener("DOMContentLoaded", function () {
         productCard.className = "card card-cart mb-4 p-3";
 
         productCard.innerHTML = `
-            <div class="row g-2 align-items-center flex-lg-row flex-column">
-            <div class="col-lg-2 col-md-3 mb-3 mb-lg-0">
-                <img src="${product.images[0]}" class="img-fluid rounded-3" id="img-cart-product" onclick="goToProduct(${product.id})" alt="${product.name}">
-            </div>
-            <div class="col-lg-2 col-md-4">
-               <h6 class="text-muted">${product.category}</h6>
-                <h6 class="mb-0" id="product-name-cart" onclick="goToProduct(${product.id})">${product.name}</h6>
-            </div>
-            <div class="col-lg-2 text-lg-end">
-                <h6 class="mb-0">${product.currency}: ${product.cost}</h6>
-            </div>
-            <div class="col-lg-2 align-items-center" style="flex: 1;">
-                <div class="d-flex align-items-center">
-                    <button class="btn btn-link px-1" onclick="updateQuantity(${index}, -1)">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <input id="input-quantity-${index}" min="1" name="quantity"
-                        value="${product.quantity}" type="number"
-                        class="form-control text-center input-quantity" readonly />
-                    <button class="btn btn-link px-1" onclick="updateQuantity(${index}, 1)">
-                        <i class="fas fa-plus"></i>
-                    </button>
+            <div class="row g-2 align-items-center flex-lg-row flex-column card-cart-body">
+                <div class="col-lg-2 mb-3 mb-lg-0">
+                    <img src="${product.images[0]}" class="img-fluid rounded-3" id="img-cart-product" onclick="goToProduct(${product.id})" alt="${product.name}">
                 </div>
-            </div>
-            <div class="col-lg-2 text-lg-end">
-                <h6 class="mb-0">Subtotal: ${product.currency}
-                    <span id="subtotal-${index}"></span>
-                </h6>
-            </div>
-                <div class="col-lg-2 text-end">
+                <div class="col-lg-2 col-md-4">
+                <h6 class="text-muted">${product.category}</h6>
+                    <h6 class="mb-0" id="product-name-cart" onclick="goToProduct(${product.id})">${product.name}</h6>
+                </div>
+                <div class="col-lg-2 text-lg-end">
+                    <h6 class="mb-0">${product.currency}: ${product.cost}</h6>
+                </div>
+                <div class="col-lg-2 align-items-center quantity-items" style="flex: 1;">
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-link px-1" onclick="updateQuantity(${index}, -1)">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <input id="input-quantity-${index}" min="1" name="quantity"
+                            value="${product.quantity}" type="number"
+                            class="form-control text-center input-quantity" readonly />
+                        <button class="btn btn-link px-1" onclick="updateQuantity(${index}, 1)">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-2 text-lg-end">
+                    <h6 class="mb-0">Subtotal: ${product.currency}
+                        <span id="subtotal-${index}"></span>
+                    </h6>
+                </div>
+                <div class="col-lg-2 text-end btn-borrar">
                     <a href="#!" class="text-muted d-inline-block" onclick="removeProduct(${index})">
                         <i class="fas fa-trash-alt"></i>
                     </a>
