@@ -35,11 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
         userContainer.innerHTML = `
             <a id="user-container" class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="cart.html">Mi carrito</a>
-                 <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <li><a class="dropdown-item d-flex align-items-center" href="cart.html">Mi carrito<span id="cart-count" class="badge rounded-pill bg-danger ms-1 mb-2">
                    0
                  <span class="visually-hidden">unread messages</span>
-                  </span>
+                  </span></a>
                 </li>
                 <li><a class="dropdown-item" href="my-profile.html">Mi perfil</a></li>
                 <li><hr class="dropdown-divider"></li>
