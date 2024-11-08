@@ -33,14 +33,14 @@
           </li>
           <li class="nav-item" id="register-link">
             <a class="nav-link" href="login.html">Registrarse</a>
-            </li>
+          </li>
           <li class="nav-item dropdown" id="user">
-              
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
   <main>
     <div class="container py-5 h-100" id="body-cart">
       <section class="h-100 h-custom">
@@ -48,7 +48,7 @@
           <h1 class="fw-bold mb-0" id="h1-carrito">Carrito</h1>
           <h6 class="mb-0 text-muted" id="cart-items"></h6>
         </div>
-    
+
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-12">
             <div class="card">
@@ -56,11 +56,73 @@
                 <div class="row g-0">
                   <!-- Columna izquierda: Productos -->
                   <div class="col-lg-8 p-5" id="cart-items-container">
-                    
                   </div>
-                  <!-- Columna derecha: Resumen del carrito -->
+                              <!-- Columna derecha: Resumen del carrito -->
                   <div class="col-lg-4 bg-body-tertiary p-5" id="cart-summary">
-                    
+                    <h5>Resumen del pedido</h5>
+                    <hr>
+
+                    <div class="d-flex justify-content-between">
+                      <p>Subtotal:</p>
+                      <p><strong id="subtotal">0.00</strong></p>
+                    </div>
+
+                    <div class="mt-4">
+                      <label for="shippingType">Tipo de envío</label>
+                      <select class="form-control mb-3" id="shippingType" required>
+                        <option value="">Selecciona el tipo de envío</option>
+                        <option value="premium">Premium 2 a 5 días (15%)</option>
+                        <option value="express">Express 5 a 8 días (7%)</option>
+                        <option value="standard">Standard 12 a 15 días (5%)</option>
+                      </select>
+                    </div>
+
+                    <div class="mt-4">
+                      <label>Dirección de Envío</label>
+                      <input type="text" class="form-control mb-3" id="department" placeholder="Departamento" required />
+                      <input type="text" class="form-control mb-3" id="locality" placeholder="Localidad" required />
+                      <input type="text" class="form-control mb-3" id="street" placeholder="Calle" required />
+                      <input type="number" class="form-control mb-3" id="number" placeholder="Número" required />
+                      <input type="text" class="form-control mb-3" id="corner" placeholder="Esquina" required />
+                    </div>
+
+                    <div class="mt-4">
+                      <label for="paymentMethod">Forma de pago</label>
+                      <select class="form-control mb-3" id="paymentMethod" required>
+                        <option value="">Selecciona una forma de pago</option>
+                        <option value="creditCard">Tarjeta de Crédito</option>
+                        <option value="bankTransfer">Transferencia Bancaria</option>
+                      </select>
+
+                      <div id="creditCardDetails" class="hidden">
+                        <input type="text" class="form-control mb-3" id="cardNumber" placeholder="Número de tarjeta" required />
+                        <input type="text" class="form-control mb-3" id="cardExpiry" placeholder="Fecha de expiración" required />
+                        <input type="text" class="form-control mb-3" id="cardCVV" placeholder="CVV" required />
+                      </div>
+
+                      <div id="bankTransferDetails" class="hidden">
+                        <input type="text" class="form-control mb-3" id="bankAccount" placeholder="Número de cuenta" required />
+                        <input type="text" class="form-control mb-3" id="bankDetails" placeholder="Detalles del banco" required />
+                      </div>
+                    </div>
+
+                    <div class="mt-4">
+                      <div class="d-flex justify-content-between">
+                        <p>Costo de Envío:</p>
+                        <p><strong id="shippingCost">0.00</strong></p>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <p>Total:</p>
+                        <p><strong id="totalCost">0.00</strong></p>
+                      </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="d-flex justify-content-between g-2 mt-4">
+                      <button class="col-6 btn btn-outline-warning me-2" id="btn-seguir-comprar" onclick="location.href='categories.html'">Seguir comprando</button>
+                      <button class="col-6 btn btn-warning" id="btn-pagar" onclick="finalizarCompra()">Finalizar compra</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -68,8 +130,9 @@
           </div>
         </div>
       </section>
-    </div>    
+    </div>
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
@@ -80,6 +143,7 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -88,6 +152,7 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
