@@ -1,0 +1,22 @@
+#btn-continue {
+    color: white;
+    background-color: #F89A2E;
+  }
+  
+  #btn-continue:hover {
+    color: white;
+    background-color: #fa8a0a;
+    font-weight: bold;
+  }
+  #btn-cancel{
+    color:#F89A2E;
+    background-color: white;
+  }
+  #btn-cancel:hover {
+    background-color: white;
+    font-weight: bold;
+    color: #F89A2E;
+  }
+  .nav-link{
+    color:#F89A2E;
+  }

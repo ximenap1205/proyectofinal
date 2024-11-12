@@ -133,6 +133,13 @@ function updateCartSummary(products) {
             <button class="col-6 btn btn-warning" id="btn-pagar">Ir a pagar</button>
         </div>
     `;
+     // Conexión entre el modal y el botón "ir a pagar"
+const btnPagar = document.getElementById("btn-pagar");
+const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
+btnPagar.addEventListener("click", function () {
+    modal.show();
+});
+
 }
 
 function actualizarTotales() {
@@ -172,3 +179,7 @@ function goToProduct(id) {
     window.location = "product-info.html";
     console.log(id);
 }
+
+    
+  
+  
