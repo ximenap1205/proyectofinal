@@ -105,6 +105,8 @@ function removeProduct(index) {
 
 function updateCartSummary(products) {
     const summaryContainer = document.getElementById('cart-summary');
+    
+    // subtotales
     let subtotalUYU = 0;
     let subtotalUSD = 0;
 
@@ -116,16 +118,67 @@ function updateCartSummary(products) {
         }
     })
 
+    // costo de envio
+
+    const shippingType = document.getElementById('shippingType').value;
+
+    console.log('Tipo de envío seleccionado:', shippingType);
+    
+    let porcentajeEnvio = 0;
+    
+    if (shippingType === 'premium') {
+        porcentajeEnvio = 0.15;
+    } else if (shippingType === 'express') {
+        porcentajeEnvio = 0.07;
+    } else if (shippingType === 'standard') {
+        porcentajeEnvio = 0.05;
+    }
+
+    console.log('Porcentaje de envío:', porcentajeEnvio);
+
+    // Calcula el costo de envio basado en el subtotal
+    const costoEnvioUYU = subtotalUYU * porcentajeEnvio;
+    const costoEnvioUSD = subtotalUSD * porcentajeEnvio;
+
+    // escucha el cambio en el tipo de envio
+    document.getElementById('shippingType').addEventListener('change', () => {
+        updateCartSummary(products);
+    });
+
+    // totales
+    let totalUYU = subtotalUYU + costoEnvioUYU;
+    let totalUSD = subtotalUSD + costoEnvioUSD;
+
+    // resumen
+
     summaryContainer.innerHTML = `
         <h5>Resumen del pedido</h5>
         <hr>
         <div class="d-flex justify-content-between">
             <p>Subtotal UYU:</p>
-            <p><strong>${subtotalUYU.toFixed(2)}</strong></p>
+            <p>${subtotalUYU.toFixed(2)}</p>
         </div>
         <div class="d-flex justify-content-between">
             <p>Subtotal USD:</p>
-            <p><strong>${subtotalUSD.toFixed(2)}</strong></p>
+            <p>${subtotalUSD.toFixed(2)}</p>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between text-muted">
+            <p>Costo de envío UYU:</p>
+            <p>${costoEnvioUYU.toFixed(2)}</p>
+        </div>
+        <div class="d-flex justify-content-between text-muted">
+            <p>Costo de envío USD:</p>
+            <p>${costoEnvioUSD.toFixed(2)}</p>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between">
+            <p>Total UYU:</p>
+            <p><strong>${totalUYU.toFixed(2)}</strong></p>
+        </div>
+        <div class="d-flex justify-content-between">
+            <p>Total USD:</p>
+            <p><strong>${totalUSD.toFixed(2)}</strong></p>
         </div>
         <hr>
         <div class="buttons-comprar d-flex justify-content-between g-2">
@@ -133,14 +186,34 @@ function updateCartSummary(products) {
             <button class="col-6 btn btn-warning" id="btn-pagar">Ir a pagar</button>
         </div>
     `;
-     // Conexión entre el modal y el botón "ir a pagar"
-const btnPagar = document.getElementById("btn-pagar");
-const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
-btnPagar.addEventListener("click", function () {
-    modal.show();
-});
+     
+    // Conexión entre el modal y el botón "ir a pagar"
+    const btnPagar = document.getElementById("btn-pagar");
+    const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
+    const creditCard = document.getElementById('creditCardDetails');
+    const bankAccount = document.getElementById('bankTransferDetails');
+    
+    btnPagar.addEventListener("click", function () {
+        modal.show();
+    });
+
+    creditCard.hidden = true;
+    bankAccount.hidden = true;
+
+    // Escuchar el cambio en el menú de forma de pago
+    document.getElementById('paymentMethod').addEventListener('change', modalShowItems);
 
 }
+
+function modalShowItems() {
+    const creditCard = document.getElementById('creditCardDetails');
+    const bankAccount = document.getElementById('bankTransferDetails');
+    const menuPayment = document.getElementById('paymentMethod');
+
+    creditCard.hidden = menuPayment.value !== "creditCard";
+    bankAccount.hidden = menuPayment.value !== "bankTransfer";
+}
+
 
 function actualizarTotales() {
 
@@ -168,9 +241,9 @@ function actualizarTotales() {
         cartCountElement.innerText = unidades;
         if (unidades === 0) {
             cartCountElement.style.display = "none";
-         } else { 
+        } else { 
             cartCountElement.style.display = "inline-block";
-         }
+        }
     }
 }
 
@@ -179,7 +252,3 @@ function goToProduct(id) {
     window.location = "product-info.html";
     console.log(id);
 }
-
-    
-  
-  

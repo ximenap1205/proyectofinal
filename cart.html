@@ -132,75 +132,76 @@
         </div>
       </section>
       <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <ul class="nav nav-tabs w-100" id="modalTabs">
-          <li class="nav-item">
-            <a class="nav-link active" id="direction-tab" data-bs-toggle="tab" href="#direction">Dirección de envío</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="send-tab" data-bs-toggle="tab" href="#send">Tipo de envío</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="pay-tab" data-bs-toggle="tab" href="#pay">Formas de pago</a>
-          </li>
-        </ul>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-        <div class="tab-content">
-          <div class="tab-pane fade show active" id="direction">
-            <label>Dirección de Envío</label>
-            <input type="text" class="form-control mb-3" id="department" placeholder="Departamento" required />
-            <input type="text" class="form-control mb-3" id="locality" placeholder="Localidad" required />
-            <input type="text" class="form-control mb-3" id="street" placeholder="Calle" required />
-            <input type="number" class="form-control mb-3" id="number" placeholder="Número" required />
-            <input type="text" class="form-control mb-3" id="corner" placeholder="Esquina" required />
-          </div>
-
-          <div class="tab-pane fade" id="send">
-            <label for="shippingType">Tipo de envío</label>
-            <select class="form-control mb-3" id="shippingType" required>
-              <option value="">Selecciona el tipo de envío</option>
-              <option value="premium">Premium 2 a 5 días (15%)</option>
-              <option value="express">Express 5 a 8 días (7%)</option>
-              <option value="standard">Standard 12 a 15 días (5%)</option>
-            </select>
-          </div>
-
-          <div class="tab-pane fade" id="pay">
-            <label for="paymentMethod">Forma de pago</label>
-            <select class="form-control mb-3" id="paymentMethod" required>
-              <option value="">Selecciona una forma de pago</option>
-              <option value="creditCard">Tarjeta de Crédito</option>
-              <option value="bankTransfer">Transferencia Bancaria</option>
-            </select>
-
-            <div id="creditCardDetails" class="hidden">
-              <input type="text" class="form-control mb-3" id="cardNumber" placeholder="Número de tarjeta" required />
-              <input type="text" class="form-control mb-3" id="cardExpiry" placeholder="Fecha de expiración" required />
-              <input type="text" class="form-control mb-3" id="cardCVV" placeholder="CVV" required />
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <ul class="nav nav-tabs w-100" id="modalTabs">
+                <li class="nav-item">
+                  <a class="nav-link active" id="direction-tab" data-bs-toggle="tab" href="#direction">Dirección de envío</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="send-tab" data-bs-toggle="tab" href="#send">Tipo de envío</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="pay-tab" data-bs-toggle="tab" href="#pay">Formas de pago</a>
+                </li>
+              </ul>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <div id="bankTransferDetails" class="hidden">
-              <input type="text" class="form-control mb-3" id="bankAccount" placeholder="Número de cuenta" required />
-              <input type="text" class="form-control mb-3" id="bankDetails" placeholder="Detalles del banco" required />
+            <div class="modal-body">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="direction">
+                  <label class="mb-3">Dirección de envío</label>
+                  <input type="text" class="form-control mb-3" id="department" placeholder="Departamento" required />
+                  <input type="text" class="form-control mb-3" id="locality" placeholder="Localidad" required />
+                  <input type="text" class="form-control mb-3" id="street" placeholder="Calle" required />
+                  <input type="number" class="form-control mb-3" id="number" placeholder="Número" required />
+                  <input type="text" class="form-control mb-3" id="corner" placeholder="Esquina" required />
+                </div>
+
+                <div class="tab-pane fade" id="send">
+                  <label for="shippingType" class="mb-3">Tipo de envío</label>
+                  <select class="form-control mb-3" id="shippingType" required>
+                    <option value="">Selecciona el tipo de envío</option>
+                    <option value="premium">Premium 2 a 5 días (15%)</option>
+                    <option value="express">Express 5 a 8 días (7%)</option>
+                    <option value="standard">Standard 12 a 15 días (5%)</option>
+                  </select>
+                </div>
+
+                <div class="tab-pane fade" id="pay">
+                  <label for="paymentMethod" class="mb-3">Forma de pago</label>
+                  <select class="form-control mb-3" id="paymentMethod" required>
+                    <option value="">Selecciona una forma de pago</option>
+                    <option value="creditCard">Tarjeta de Crédito</option>
+                    <option value="bankTransfer">Transferencia Bancaria</option>
+                  </select>
+
+                  <div id="creditCardDetails" class="hidden">
+                    <input type="number" class="form-control mb-3" id="cardNumber" placeholder="Número de tarjeta" required />
+                    <input type="date" class="form-control mb-3" id="cardExpiry" placeholder="Fecha de expiración" required />
+                    <input type="number" class="form-control mb-3" id="cardCVV" placeholder="CVV" required />
+                  </div>
+
+                  <div id="bankTransferDetails" class="hidden">
+                    <input type="number" class="form-control mb-3" id="bankAccount" placeholder="Número de cuenta" required />
+                    <input type="text" class="form-control mb-3" id="bankDetails" placeholder="Detalles del banco" required />
+                  </div>
+                </div>
+                
+              </div>
             </div>
+
+            <div class="modal-footer">
+              <button id="btn-cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button id= "btn-continue" type="button" class="btn btn-primary">Continuar</button>
+            </div>
+
           </div>
         </div>
       </div>
-
-      <div class="modal-footer">
-        <button id="btn-cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button id= "btn-continue" type="button" class="btn btn-primary">Continuar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
     </div>
   </main>
 
