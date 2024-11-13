@@ -190,3 +190,17 @@ body.dark .card-cart-body {
 body.dark .card-cart:hover .card-cart-body {
   background-color: #252525 !important;
 }
+
+.dark .modal-content {
+  background-color: #444; 
+}
+
+.dark .modal-header .nav-tabs .nav-link.active {
+  color: #ffffff;
+  background-color: #444; 
+}
+
+.dark .modal-footer .btn-secondary {
+  background-color: var(--bg-dark) !important;
+  color: #ec7028;
+}
