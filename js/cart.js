@@ -128,6 +128,26 @@ function updateCartSummary(products) {
             <p><strong>${subtotalUSD.toFixed(2)}</strong></p>
         </div>
         <hr>
+        <div class="mt-4">
+                      <div class="d-flex justify-content-between text-muted">
+                        <p>Costo de envío UYU:</p>
+                        <p><strong id="shippingCost">0.00</strong></p>
+                      </div>
+                      <div class="d-flex justify-content-between text-muted">
+                        <p>Costo de envío USD:</p>
+                        <p><strong id="shippingCost">0.00</strong></p>
+                      </div>
+        <hr>
+                      <div class="d-flex justify-content-between">
+                        <p>Total UYU:</p>
+                        <p><strong id="totalCost">0.00</strong></p>
+                      </div>
+                       <div class="d-flex justify-content-between">
+                        <p>Total USD:</p>
+                        <p><strong id="totalCost">0.00</strong></p>
+                      </div>
+                    </div>
+        <hr>
         <div class="buttons-comprar d-flex justify-content-between g-2">
             <button class="col-6 btn btn-outline-warning me-2" id="btn-seguir-comprar" onclick="location.href='categories.html'">Seguir comprando</button>
             <button class="col-6 btn btn-warning" id="btn-pagar">Ir a pagar</button>

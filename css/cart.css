@@ -1,6 +1,7 @@
 #btn-continue {
     color: white;
     background-color: #F89A2E;
+   border-color: #F89A2E;
   }
   
   #btn-continue:hover {
@@ -11,6 +12,7 @@
   #btn-cancel{
     color:#F89A2E;
     background-color: white;
+    border-color: #F89A2E;
   }
   #btn-cancel:hover {
     background-color: white;
