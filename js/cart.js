@@ -251,7 +251,7 @@ continueButton.addEventListener('click', function() {
   }
 });
 
-document.getElementById('btnCheckout').addEventListener('click', function(){  
+document.getElementById('btn-continue').addEventListener('click', function(){  
     finalizarCompraModal.show();  
 });  
 
