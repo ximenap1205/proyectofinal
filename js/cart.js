@@ -251,9 +251,7 @@ continueButton.addEventListener('click', function() {
   }
 });
 
-document.getElementById('btn-continue').addEventListener('click', function(){  
-    finalizarCompraModal.show();  
-});  
+
 
 //validar campos  
 function validateFields(){  
@@ -310,7 +308,6 @@ function validateCantidades() {
 function showSuccessMessage() {  
     alert('¡Compra realizada con éxito!');  
     localStorage.removeItem('productos');  // Limpiamos el carrito de compras  
-    finalizarCompraModal.hide();  // Cerramos el modal  
 }  
 
 //Si los campos no estan completos  
