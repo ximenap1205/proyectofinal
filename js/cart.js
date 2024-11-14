@@ -213,6 +213,49 @@ function modalShowItems() {
     creditCard.hidden = menuPayment.value !== "creditCard";
     bankAccount.hidden = menuPayment.value !== "bankTransfer";
 }
+const continueButton = document.getElementById('btn-continue');
+const tabs = document.querySelectorAll('.nav-link');
+const tabContents = document.querySelectorAll('.tab-pane');
+
+continueButton.addEventListener('click', function() {
+  // Obtener la pestaña activa
+  const activeTab = document.querySelector('.nav-link.active');
+  
+  // Buscar la siguiente pestaña
+  let nextTab = activeTab.parentElement.nextElementSibling?.querySelector('.nav-link');
+  
+  if (nextTab) {
+    // Cambiar a la siguiente pestaña
+    activeTab.classList.remove('active');
+    nextTab.classList.add('active');
+
+    // Cambiar el contenido visible
+    const targetId = nextTab.getAttribute('href').substring(1);
+    const targetPane = document.getElementById(targetId);
+    
+    tabContents.forEach(pane => pane.classList.remove('show', 'active'));
+    targetPane.classList.add('show', 'active');
+
+    // Verificar si estamos en la ultima pestaña
+    if (!nextTab.parentElement.nextElementSibling) {
+      continueButton.textContent = "Finalizar compra";
+    } else {
+      continueButton.textContent = "Continuar";
+    }
+  } else {
+    // Aqui puedes agregar la accion de finalizar compra si ya estas en la ultima pestaña
+    console.log("Compra finalizada");
+  }
+});
+
+// Agregar un event listener a cada pestaña para detectar si se vuelve a una anterior
+tabs.forEach(tab => {
+  tab.addEventListener('click', function() {
+    const isLastTab = !tab.parentElement.nextElementSibling;
+    continueButton.textContent = isLastTab ? "Finalizar compra" : "Continuar";
+  });
+});
+
 
 
 function actualizarSubtotalesProductos() {
