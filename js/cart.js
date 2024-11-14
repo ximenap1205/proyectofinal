@@ -141,9 +141,12 @@ function updateCartSummary(products) {
     const costoEnvioUSD = subtotalUSD * porcentajeEnvio;
 
     // escucha el cambio en el tipo de envio
-    document.getElementById('shippingType').addEventListener('change', () => {
-        updateCartSummary(products);
-    });
+    const shippingTypeElement = document.getElementById('shippingType');
+    if (shippingTypeElement) {
+        shippingTypeElement.addEventListener('change', () => {
+            updateCartSummary(products);
+        });
+    }
 
     // totales
     let totalUYU = subtotalUYU + costoEnvioUYU;
@@ -247,6 +250,74 @@ continueButton.addEventListener('click', function() {
     console.log("Compra finalizada");
   }
 });
+
+document.getElementById('btnCheckout').addEventListener('click', function(){  
+    finalizarCompraModal.show();  
+});  
+
+//validar campos  
+function validateFields(){  
+    let direccionValidada = validateDireccion();  
+    let envioValidado = validateEnvio();  
+    let pagoValidado = validatePago();  
+    let cantidadesValidas = validateCantidades();  
+
+    return direccionValidada && envioValidado && pagoValidado && cantidadesValidas;  
+}  
+
+//Validar direccion  
+function validateDireccion(){  
+const department = document.getElementById('department').value.trim();  
+    const locality = document.getElementById('locality').value.trim();  
+    const street = document.getElementById('street').value.trim();  
+    const number = document.getElementById('number').value.trim();  
+    const corner = document.getElementById('corner').value.trim();  
+
+    return department !== "" && locality !== "" && street !== "" && number !== "" && corner !== "";  
+}  
+
+//validar tipo de envio  
+function validateEnvio() {  
+    const tipodeEnvio = document.getElementById('shippingType').value;  
+    return tipodeEnvio !== "";  
+}  
+
+//validar tipo de pago  
+function validatePago() {
+const tipoDePago = document.getElementById('paymentMethod').value;
+if (tipoDePago === "") return false;
+
+// Validación según tipo de pago
+if (tipoDePago === 'creditCard') {
+    const cardNumber = document.getElementById('cardNumber').value.trim();
+    const cardExpiry = document.getElementById('cardExpiry').value.trim();
+    const cardCVV = document.getElementById('cardCVV').value.trim();
+    return cardNumber !== "" && cardExpiry !== "" && cardCVV !== "";
+}
+
+const bankAccount = document.getElementById('bankAccount').value.trim();
+const bankDetails = document.getElementById('bankDetails').value.trim();
+return bankAccount !== "" && bankDetails !== "";
+}
+
+//Validamos cantidad de productos > 0  
+function validateCantidades() {  
+    const productsInCart = JSON.parse(localStorage.getItem('productos')) || [];  
+    return productsInCart.every(product => product.quantity > 0);  
+}  
+
+//Si la compra se realiza  
+function showSuccessMessage() {  
+    alert('¡Compra realizada con éxito!');  
+    localStorage.removeItem('productos');  // Limpiar el carrito de compras  
+    finalizarCompraModal.hide();  // Cerrar el modal  
+    window.location.href = 'thank_you.html';  // Redirigir a una página de agradecimiento  
+}  
+
+//Si los campos no estan completos  
+function showErrorMessage() {  
+    alert('Por favor, complete todos los campos antes de finalizar la compra.');  
+} 
 
 // Agregar un event listener a cada pestaña para detectar si se vuelve a una anterior
 tabs.forEach(tab => {
