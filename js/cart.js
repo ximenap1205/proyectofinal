@@ -309,9 +309,8 @@ function validateCantidades() {
 //Si la compra se realiza  
 function showSuccessMessage() {  
     alert('¡Compra realizada con éxito!');  
-    localStorage.removeItem('productos');  // Limpiar el carrito de compras  
-    finalizarCompraModal.hide();  // Cerrar el modal  
-    window.location.href = 'thank_you.html';  // Redirigir a una página de agradecimiento  
+    localStorage.removeItem('productos');  // Limpiamos el carrito de compras  
+    finalizarCompraModal.hide();  // Cerramos el modal  
 }  
 
 //Si los campos no estan completos  
