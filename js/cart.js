@@ -1,6 +1,7 @@
 const products = JSON.parse(localStorage.getItem('productos')) || [];
 const productCardsContainer = document.getElementById('cart-items-container');
 const summaryContainer = document.getElementById('cart-summary');
+
 document.addEventListener("DOMContentLoaded", function () {
 
     // si no hay productos en el carrito
@@ -74,6 +75,7 @@ function updateQuantity(index, change) {
     actualizarSubtotalesProductos();
     updateCartSummary(products);
 }
+//LORE
 
 //eliminar producto del carrito
 
@@ -192,14 +194,12 @@ function updateCartSummary(products) {
      
     // Conexión entre el modal y el botón "ir a pagar"
     const btnPagar = document.getElementById("btn-pagar");
-    
-    const creditCard = document.getElementById('creditCardDetails');
-    const bankAccount = document.getElementById('bankTransferDetails');
-    
     btnPagar.addEventListener("click", function () {
         modal.show();
     });
 
+    const creditCard = document.getElementById('creditCardDetails');
+    const bankAccount = document.getElementById('bankTransferDetails');
     creditCard.hidden = true;
     bankAccount.hidden = true;
 
@@ -216,6 +216,9 @@ function modalShowItems() {
     creditCard.hidden = menuPayment.value !== "creditCard";
     bankAccount.hidden = menuPayment.value !== "bankTransfer";
 }
+
+
+
 const continueButton = document.getElementById('btn-continue');
 const tabs = document.querySelectorAll('.nav-link');
 const tabContents = document.querySelectorAll('.tab-pane');
@@ -254,6 +257,7 @@ if (validateFields()) {
 }
 }
 });
+
 
 
 
@@ -312,6 +316,7 @@ function validateCantidades() {
 function showSuccessMessage() {  
     modal.hide();
     localStorage.removeItem('productos');  // Limpiamos el carrito de compras  
+    actualizarBadge();
     productCardsContainer.innerHTML = '';
     summaryContainer.remove();
     productCardsContainer.classList.remove("col-lg-8");
@@ -338,11 +343,10 @@ tabs.forEach(tab => {
 });
 
 
+let unidades = 0;
+let precio = 0;
 
 function actualizarSubtotalesProductos() {
-
-    let unidades = 0;
-    let precio = 0;
 
     if (products.length > 0) {
         products.forEach(producto => {
@@ -353,14 +357,19 @@ function actualizarSubtotalesProductos() {
 
     const unidadesElement = document.getElementById("unidades");
     const precioElement = document.getElementById("precio");
-    const cartCountElement = document.getElementById("cart-count");
+    
 
     if (unidadesElement && precioElement) {
         unidadesElement.innerText = unidades;
         precioElement.innerText = precio.toFixed(2);///redondeará el número en función de la cantidad de decimales que especifiques algo nuevo que aprendi jaja
     }
+    actualizarBadge();
+   
+}
 
     // Actualiza el badge del carrito
+    function actualizarBadge(){
+    const cartCountElement = document.getElementById("cart-count");
     if (cartCountElement) {
         cartCountElement.innerText = unidades;
         if (unidades === 0) {
@@ -370,7 +379,6 @@ function actualizarSubtotalesProductos() {
         }
     }
 }
-
 function goToProduct(id) {
     localStorage.setItem("productID", id);
     window.location = "product-info.html";
