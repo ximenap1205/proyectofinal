@@ -1,6 +1,6 @@
 const products = JSON.parse(localStorage.getItem('productos')) || [];
 const productCardsContainer = document.getElementById('cart-items-container');
-
+const summaryContainer = document.getElementById('cart-summary');
 document.addEventListener("DOMContentLoaded", function () {
 
     // si no hay productos en el carrito
@@ -104,7 +104,7 @@ function removeProduct(index) {
 // actualizar carrito resumen
 
 function updateCartSummary(products) {
-    const summaryContainer = document.getElementById('cart-summary');
+    
     
     // subtotales
     let subtotalUYU = 0;
@@ -192,7 +192,7 @@ function updateCartSummary(products) {
      
     // Conexión entre el modal y el botón "ir a pagar"
     const btnPagar = document.getElementById("btn-pagar");
-    const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
+    
     const creditCard = document.getElementById('creditCardDetails');
     const bankAccount = document.getElementById('bankTransferDetails');
     
@@ -207,7 +207,7 @@ function updateCartSummary(products) {
     document.getElementById('paymentMethod').addEventListener('change', modalShowItems);
 
 }
-
+const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
 function modalShowItems() {
     const creditCard = document.getElementById('creditCardDetails');
     const bankAccount = document.getElementById('bankTransferDetails');
@@ -310,10 +310,19 @@ function validateCantidades() {
 
 //Si la compra se realiza  
 function showSuccessMessage() {  
-    alert('¡Compra realizada con éxito!');  
+    modal.hide();
     localStorage.removeItem('productos');  // Limpiamos el carrito de compras  
-    window.location.href = 'cart.html';   
+    productCardsContainer.innerHTML = '';
+    summaryContainer.remove();
+    productCardsContainer.classList.remove("col-lg-8");
+    productCardsContainer.classList.add("col");
+    productCardsContainer.innerHTML = `
+    <p id= "compra-exitosa">¡Compra exitosa! Recibirás un correo de confirmación en los próximos segundos...</p>
+    <p id="compra-agradecimiento" class= "text-end">Muchas gracias por comprar en eMercado</p>
+     `;   
+
 }  
+
 
 //Si los campos no estan completos  
 function showErrorMessage() {  
