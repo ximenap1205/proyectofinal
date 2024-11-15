@@ -193,6 +193,7 @@ function updateCartSummary(products) {
     // Conexión entre el modal y el botón "ir a pagar"
     const btnPagar = document.getElementById("btn-pagar");
     const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
+    modal.hide();
     const creditCard = document.getElementById('creditCardDetails');
     const bankAccount = document.getElementById('bankTransferDetails');
     
@@ -241,15 +242,19 @@ continueButton.addEventListener('click', function() {
 
     // Verificar si estamos en la ultima pestaña
     if (!nextTab.parentElement.nextElementSibling) {
-      continueButton.textContent = "Finalizar compra";
+        continueButton.textContent = "Finalizar compra";
     } else {
-      continueButton.textContent = "Continuar";
+        continueButton.textContent = "Continuar";}
     }
-  } else {
-    // Aqui puedes agregar la accion de finalizar compra si ya estas en la ultima pestaña
-    console.log("Compra finalizada");
+        else {
+    if (validateFields()) {
+        showSuccessMessage();
+    } else {
+        showErrorMessage();
+    }
+    }
   }
-});
+    );
 
 
 
@@ -307,7 +312,8 @@ function validateCantidades() {
 //Si la compra se realiza  
 function showSuccessMessage() {  
     alert('¡Compra realizada con éxito!');  
-    localStorage.removeItem('productos');  // Limpiamos el carrito de compras  
+    localStorage.removeItem('productos');  // Limpiar el carrito de compras  
+    modal.hide();  // Cerrar el modal   
 }  
 
 //Si los campos no estan completos  
