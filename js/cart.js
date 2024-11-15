@@ -317,7 +317,7 @@ function showSuccessMessage() {
     productCardsContainer.classList.remove("col-lg-8");
     productCardsContainer.classList.add("col");
     productCardsContainer.innerHTML = `
-    <p id= "compra-exitosa">¡Compra exitosa! Recibirás un correo de confirmación en los próximos segundos...</p>
+    <p>¡Compra exitosa! Recibirás un correo de confirmación en los próximos segundos...</p>
     <p id="compra-agradecimiento" class= "text-end">Muchas gracias por comprar en eMercado</p>
      `;   
 
