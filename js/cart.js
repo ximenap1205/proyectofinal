@@ -238,17 +238,21 @@ continueButton.addEventListener('click', function() {
     
     tabContents.forEach(pane => pane.classList.remove('show', 'active'));
     targetPane.classList.add('show', 'active');
+ 
 
-    // Verificar si estamos en la ultima pestaña
-    if (!nextTab.parentElement.nextElementSibling) {
-      continueButton.textContent = "Finalizar compra";
-    } else {
-      continueButton.textContent = "Continuar";
-    }
-  } else {
-    // Aqui puedes agregar la accion de finalizar compra si ya estas en la ultima pestaña
-    console.log("Compra finalizada");
-  }
+ if (!nextTab.parentElement.nextElementSibling) {
+    continueButton.textContent = "Finalizar compra";
+} else {
+    continueButton.textContent = "Continuar";
+}
+} else {
+
+if (validateFields()) {
+    showSuccessMessage();
+} else {
+    showErrorMessage();
+}
+}
 });
 
 
@@ -308,6 +312,7 @@ function validateCantidades() {
 function showSuccessMessage() {  
     alert('¡Compra realizada con éxito!');  
     localStorage.removeItem('productos');  // Limpiamos el carrito de compras  
+    window.location.href = 'cart.html';   
 }  
 
 //Si los campos no estan completos  
