@@ -40,6 +40,7 @@ let getJSONData = function(url){
     });
 }
 
+//Productos dinamicos
 let getProductData = function(productId) {
   return fetch(`http://localhost:3000/products/${productId}`)
       .then(response => {
@@ -57,6 +58,7 @@ let getProductData = function(productId) {
       });
 };
 
+//Comentarios dinamicos
 let getCommentsData = function(productId) {
   return fetch(`http://localhost:3000/products_comments/${productId}`)
       .then(response => {
