@@ -50,7 +50,7 @@ let getProductData = function(productId) {
           }
       })
       .then(data => {
-          console.log(data); // Aquí puedes procesar la información del producto
+          console.log(data); // Aca se puede procesar la información del producto
       })
       .catch(error => {
           console.error(error);
@@ -67,7 +67,7 @@ let getCommentsData = function(productId) {
           }
       })
       .then(data => {
-          console.log(data);  // Aquí puedes procesar la información de los comentarios
+          console.log(data);  // Aca se puede procesar la información del producto
       })
       .catch(error => {
           console.error(error);
