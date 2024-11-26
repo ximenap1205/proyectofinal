@@ -1,8 +1,11 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const jwt = require('jsonwebtoken');
+
 
 const PORT = 3000;
+const SECRET_KEY = 'miclavesecretagrupo3';
 
 // Ruta para los JSONs - Categories 
 app.get('/cat', (req, res) => {
@@ -61,3 +64,14 @@ app.listen(PORT, () => {
 });
 
 
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+   
+    if (username === 'admin' && password === '1234') {
+        const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' }); 
+        res.status(200).json({ message: 'Autenticación exitosa', token }); // Respuesta con el token
+    } else {
+        res.status(401).json({ error: 'Usuario y/o contraseña incorrectos' }); // Mensaje de error
+    }
+});
