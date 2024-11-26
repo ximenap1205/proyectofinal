@@ -59,5 +59,3 @@ app.get('/publish', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor funcionando en http://localhost:${PORT}`);
 });
-
-
