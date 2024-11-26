@@ -1,8 +1,11 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const jwt = require('jsonwebtoken');
+
 
 const PORT = 3000;
+const SECRET_KEY = 'miclavesecretagrupo3';
 
 // Ruta para los JSONs - Categories 
 app.get('/cat', (req, res) => {
