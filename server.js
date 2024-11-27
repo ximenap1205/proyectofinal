@@ -6,7 +6,6 @@ const app = express();
 const PORT = 3000;
 const SECRET_KEY = 'miclavesecretagrupo3';
 
-const cors = require('cors');
 app.use(cors());  // Permite solicitudes desde cualquier origen
 
 
