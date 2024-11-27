@@ -6,12 +6,9 @@ const app = express();
 const PORT = 3000;
 const SECRET_KEY = 'miclavesecretagrupo3';
 
-// Configuración de CORS
-app.use(cors({
-    origin: 'https://ximenap1205.github.io', // Dominio permitido
-    methods: ['GET', 'POST'], // Métodos HTTP permitidos
-    allowedHeaders: ['Content-Type', 'Authorization', 'access-token'], // Headers permitidos
-}));
+const cors = require('cors');
+app.use(cors());  // Permite solicitudes desde cualquier origen
+
 
 // Middleware para parsear JSON (necesario para req.body)
 app.use(express.json());
