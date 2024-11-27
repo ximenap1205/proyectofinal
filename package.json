@@ -1,0 +1,28 @@
+{
+  "name": "proyectobackend",
+  "version": "1.0.0",
+  "description": "Backend para el proyecto final con ExpressJS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ximenap1205/proyectofinal.git"
+  },
+  "author": "Ximena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ximenap1205/proyectofinal/issues"
+  },
+  "homepage": "https://github.com/ximenap1205/proyectofinal#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
