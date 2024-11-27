@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors'); // Importamos el paquete cors
 const jwt = require('jsonwebtoken');
-
 const app = express();
 const PORT = 3000;
 const SECRET_KEY = 'miclavesecretagrupo3';
@@ -18,9 +17,16 @@ app.use(cors({
 app.use(express.json());
 
 // Ruta para los JSONs - Categories
-app.get('/categories', (req, res) => { // Cambié '/cat' a '/categories' para evitar conflictos
-    res.sendFile(path.join(__dirname, 'data/cats/cat.json'));
+app.get('/cat', (req, res) => {
+    const filePath = path.join(__dirname, 'data/cats/cat.json');
+    console.log('Buscando archivo en:', filePath); // Imprimir la ruta completa
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            res.status(500).send({ error: "No se pudo cargar el archivo de categorías" });
+        }
+    });
 });
+
 
 // Ruta para los JSONs - Publish Products
 app.get('/publish_products', (req, res) => { // Cambié '/cat' a '/publish_products'

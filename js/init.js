@@ -1,4 +1,4 @@
-const CATEGORIES_URL = "http://localhost:3000/categories"; 
+const CATEGORIES_URL = "http://localhost:3000/cat"; 
 const PUBLISH_PRODUCT_URL = "http://localhost:3000/publish_products"; 
 const PRODUCTS_URL = "http://localhost:3000/products/"; 
 const PRODUCT_INFO_URL = "http://localhost:3000/product_info/"; 
