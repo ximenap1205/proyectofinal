@@ -1,6 +1,6 @@
 const CATEGORIES_URL = "https://b77b-2800-a4-1afa-cd00-cd59-eb07-6277-1d11.ngrok-free.app/cat"; 
 const PUBLISH_PRODUCT_URL = "https://b77b-2800-a4-1afa-cd00-cd59-eb07-6277-1d11.ngrok-free.app/publish_products"; 
-const PRODUCTS_URL = "https://8f27-2800-a4-1afa-cd00-cd59-eb07-6277-1d11.ngrok-free.app/products/"; 
+const PRODUCTS_URL = "https://b77b-2800-a4-1afa-cd00-cd59-eb07-6277-1d11.ngrok-free.app/products/"; 
 const PRODUCT_INFO_URL = "https://b77b-2800-a4-1afa-cd00-cd59-eb07-6277-1d11.ngrok-free.app/product_info/"; 
 const PRODUCT_INFO_COMMENTS_URL = "https://b77b-2800-a4-1afa-cd00-cd59-eb07-6277-1d11.ngrok-free.app/products_comments/"; 
 const CART_INFO_URL = "https://b77b-2800-a4-1afa-cd00-cd59-eb07-6277-1d11.ngrok-free.app/user_cart"; 
