@@ -12,6 +12,45 @@ app.use(cors());  // Permite solicitudes desde cualquier origen
 // Middleware para parsear JSON (necesario para req.body)
 app.use(express.json());
 
+// Middleware para proteger rutas (JWT)
+const verifyToken = (req, res, next) => {
+    // Permitir acceso a /login sin token
+    if (req.path === '/login') {
+        return next(); 
+    }
+
+    // Verificar si el token está presente en los headers
+    const token = req.headers["access-token"];
+    if (!token) {
+        return res.status(403).json({ message: "Access Token requerido" }); 
+    }
+
+    try {
+        // Verificar y decodificar el token
+        const decoded = jwt.verify(token, SECRET_KEY);
+        req.user = decoded; 
+        next(); 
+    } catch (err) {
+       
+        res.status(401).json({ message: "Token inválido o expirado" });
+    }
+};
+
+// Aplicar el middleware de autorización a todas las rutas
+app.use(verifyToken);
+
+// Ruta para login
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    if (username === 'admin' && password === '1234') {
+        const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+        res.status(200).json({ message: 'Autenticación exitosa', token });
+    } else {
+        res.status(401).json({ error: 'Usuario y/o contraseña incorrectos' });
+    }
+});
+
 // Ruta para los JSONs - Categories
 app.get('/cat', (req, res) => {
     const filePath = path.join(__dirname, 'data/cats/cat.json');
@@ -66,29 +105,6 @@ app.get('/cart', (req, res) => {
 // Ruta genérica para probar
 app.get('/publish', (req, res) => {
     res.json({ message: "Publicación realizada con éxito." });
-});
-
-// Ruta para login
-app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-
-    if (username === 'admin' && password === '1234') {
-        const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' }); 
-        res.status(200).json({ message: 'Autenticación exitosa', token });
-    } else {
-        res.status(401).json({ error: 'Usuario y/o contraseña incorrectos' });
-    }
-});
-
-// Middleware para proteger rutas (JWT)
-app.use("/user", (req, res, next) => {
-    try {
-        const decoded = jwt.verify(req.headers["access-token"], SECRET_KEY);
-        console.log(decoded);
-        next();
-    } catch (err) {
-        res.status(401).json({ message: "Usuario no autorizado" });
-    }
 });
 
 // Iniciar el servidor
