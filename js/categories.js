@@ -142,4 +142,22 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
-
+fetch('http://localhost:3000/cat', {
+    method: 'GET',
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        'Content-Type': 'application/json'
+    }
+})
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('No autorizado');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Acceso concedido:', data);
+    })
+    .catch(error => {
+        console.error('Error al acceder a /cat:', error);
+    });

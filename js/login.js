@@ -28,27 +28,27 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    username: emailInput.value,
-                    password: contraInput.value
+                    username: 'admin',
+                    password: '1234'
                 })
             });
 
             if (!response.ok) {
-                throw new Error('Credenciales inválidas.');
+                throw new Error('Login fallido');
             }
 
             const data = await response.json();
-            console.log(data); // Procesar la información de la respuesta
 
-            // Guardar datos en localStorage y redirigir
-            localStorage.setItem('email', emailInput.value);
+            // Guardar el token en localStorage
+            localStorage.setItem('token', data.access-token);
+            console.log('Token guardado:', data.access-token);
+
+            // Redirigir a otra página
             location.replace('index.html');
         } catch (error) {
-            console.error(error);
-            alert('Error al iniciar sesión: ' + error.message);
+            console.error('Error en el login:', error);
         }
     });
-
     // Función para validar email
     function validateEmail(input) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para validar email

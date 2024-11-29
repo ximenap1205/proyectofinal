@@ -42,7 +42,6 @@ app.use(verifyToken);
 // Ruta para login
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
-
     if (username === 'admin' && password === '1234') {
         const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
         res.status(200).json({ message: 'Autenticación exitosa', token });
