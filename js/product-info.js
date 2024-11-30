@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let containerInfo = document.getElementById('container-product-info');
     let productID = localStorage.getItem("productID");
     
-    const PRODUCT_INFO_URL = `https://japceibal.github.io/emercado-api/products/${productID}.json`;
-    const PRODUCT_COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_comments/${productID}.json`;
+    const PRODUCT_INFO_URL = `http://localhost:3000/products/${productID}`;
+    const PRODUCT_COMMENTS_URL = `http://localhost:3000/products_comments/${productID}`;
 
     console.log(`Fetch producto info ID: ${productID}`);
 

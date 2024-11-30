@@ -16,32 +16,35 @@ document.addEventListener('DOMContentLoaded', function () {
         const passwordValid = validateField(contraInput);
 
         if (!emailValid || !passwordValid) {
-            alert('Por favor, verifica los campos antes de continuar.');
-            return; // Detener el proceso si las validaciones fallan
+            alert('Por favor, completa los campos.');
+            return; 
         }
 
         try {
             // Enviar solicitud al servidor
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch("http://localhost:3000/login", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    username: 'admin',
-                    password: '1234'
+                    email: emailInput.value,
+                    password: contraInput.value
                 })
             });
-
+            
+            console.log(response)
             if (!response.ok) {
                 throw new Error('Login fallido');
             }
 
             const data = await response.json();
 
+            console.log(data)
             // Guardar el token en localStorage
-            localStorage.setItem('token', data.access-token);
-            console.log('Token guardado:', data.access-token);
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('email', emailInput.value);
+            console.log('Token guardado:', data.token);
 
             // Redirigir a otra página
             location.replace('index.html');

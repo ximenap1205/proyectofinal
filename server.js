@@ -41,9 +41,9 @@ app.use(verifyToken);
 
 // Ruta para login
 app.post('/login', (req, res) => {
-    const { username, password } = req.body;
-    if (username === 'admin' && password === '1234') {
-        const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+    const { email, password } = req.body;
+    if (email === 'admin@gmail.com' && password === '1234') {
+        const token = jwt.sign({ email }, SECRET_KEY, { expiresIn: '1h' });
         res.status(200).json({ message: 'Autenticación exitosa', token });
     } else {
         res.status(401).json({ error: 'Usuario y/o contraseña incorrectos' });
@@ -71,7 +71,6 @@ app.get('/publish_products', (req, res) => { // Cambié '/cat' a '/publish_produ
 app.get('/products/:id', (req, res) => {
     const productId = req.params.id; // Obtenemos el ID del producto desde la URL
     const productPath = path.join(__dirname, 'data/products', `${productId}.json`); // Ruta del archivo JSON
-
     res.sendFile(productPath, (err) => {
         if (err) {
             res.status(404).send({ error: "Producto no encontrado" });
@@ -87,6 +86,17 @@ app.get('/products_comments/:id', (req, res) => {
     res.sendFile(commentsPath, (err) => {
         if (err) {
             res.status(404).send({ error: "Comentarios no encontrados para este producto" });  // Si hay error
+        }
+    });
+});
+
+// Ruta dinámica para devolver lista de productos según su Categoria
+app.get('/cats_products/:id', (req, res) => {
+    const catId = req.params.id; // Obtenemos el ID del producto desde la URL
+    const productPath = path.join(__dirname, 'data/cats_products', `${catId}.json`); // Ruta del archivo JSON
+    res.sendFile(productPath, (err) => {
+        if (err) {
+            res.status(404).send({ error: "Producto no encontrado" });
         }
     });
 });

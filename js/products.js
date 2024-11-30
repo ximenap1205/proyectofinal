@@ -6,7 +6,7 @@ function setProductID(id) {
     console.log(id);
 }
 
-const PRODUCTS = `https://japceibal.github.io/emercado-api/cats_products/${catID}.json`;
+const PRODUCTS = `http://localhost:3000/cats_products/${catID}`;
 
 let container = document.getElementById('container-products');
 let currentCategoriesArray = [];

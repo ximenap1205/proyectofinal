@@ -19,7 +19,12 @@ let hideSpinner = function(){
 let getJSONData = function(url){
     let result = {};
     showSpinner();
-    return fetch(url)
+    return fetch(url, {
+        method: 'GET',
+        headers: {
+            "access-token": `${localStorage.getItem("token")}`,
+        }
+    })
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -40,39 +45,3 @@ let getJSONData = function(url){
         return result;
     });
 }
-
-//Productos dinamicos
-let getProductData = function(productId) {
-  return fetch(`http://localhost:3000/products/${productId}`)
-      .then(response => {
-          if (response.ok) {
-              return response.json();
-          } else {
-              throw Error("Producto no encontrado");
-          }
-      })
-      .then(data => {
-          console.log(data); // Aca se puede procesar la información del producto
-      })
-      .catch(error => {
-          console.error(error);
-      });
-};
-
-//Comentarios dinamicos
-let getCommentsData = function(productId) {
-  return fetch(`http://localhost:3000/products_comments/${productId}`)
-      .then(response => {
-          if (response.ok) {
-              return response.json();
-          } else {
-              throw Error("Comentarios no encontrados");
-          }
-      })
-      .then(data => {
-          console.log(data);  // Aca se puede procesar la información del producto
-      })
-      .catch(error => {
-          console.error(error);
-      });
-};
