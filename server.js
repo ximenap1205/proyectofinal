@@ -82,7 +82,23 @@ app.post('/cart', async (req, res) => {
     }
 });
 
-
+app.post("/usercart", async (req, res) => {
+    let conn;
+    try {
+      conn = await pool.getConnection();
+      const response = await conn.query(
+        `INSERT INTO usercart(name, count, unitcost, currency, images) VALUE(?, ?, ?, ?, ?)`,
+        [req.body.name, req.body.count, req.body.unitcost, req.body.currency, req.body.images]
+      );
+  
+      res.json({ id: parseInt(response.insertId), ...req.body });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "Se rompió el servidor al hacer post" });
+    } finally {
+      if (conn) conn.release(); //release to pool
+    }
+  });
 
 
 
