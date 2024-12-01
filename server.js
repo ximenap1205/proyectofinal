@@ -5,15 +5,6 @@ const jwt = require('jsonwebtoken');
 const app = express();
 const PORT = 3000;
 const SECRET_KEY = 'miclavesecretagrupo3';
-const mariadb = require('mariadb');
-
-const pool = mariadb.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '1307',
-    database: 'ecommerce',
-    connectionLimit: 5
-});
 
 app.use(cors());  // Permite solicitudes desde cualquier origen
 
@@ -58,43 +49,6 @@ app.post('/login', (req, res) => {
         res.status(401).json({ error: 'Usuario y/o contraseña incorrectos' });
     }
 });
-
-
-
-// Verificar conexión
-mariadb.connect(err => {
-    if (err) {
-        console.error('Error conectando a la base de datos:', err);
-    } else {
-        console.log('Conectado a la base de datos.');
-    }
-});
-
-app.post('/cart', async (req, res) => {
-    const { user_id, items } = req.body;
-
-    if (!user_id || !Array.isArray(items)) {
-        return res.status(400).json({ error: 'Datos inválidos' });
-    }
-
-    const values = items.map(item => [user_id, item.item_name, item.quantity, item.price]);
-    
-    try {
-        const conn = await pool.getConnection();
-        const query = "INSERT INTO cart (user_id, item_name, quantity, price) VALUES ?";
-        const result = await conn.query(query, [values]);
-        conn.release();  // Liberar la conexión
-
-        res.status(201).json({ message: 'Carrito guardado exitosamente', insertId: result.insertId });
-    } catch (err) {
-        console.error('Error al insertar en la base de datos:', err);
-        res.status(500).json({ error: 'Error interno del servidor' });
-    }
-});
-
-
-
-
 
 // Ruta para los JSONs - Categories
 app.get('/cat', (req, res) => {
